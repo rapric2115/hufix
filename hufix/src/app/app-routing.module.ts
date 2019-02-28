@@ -7,7 +7,7 @@ import { TrackDeviceComponent } from './nav-switch/track-device/track-device.com
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/sell', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'sell', component: SellDeviceComponent},
   {path: 'track', component: TrackDeviceComponent},

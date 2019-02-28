@@ -23,7 +23,11 @@
   width: 50%;
   margin-bottom: 0;
 }
-
+.active {
+  border-bottom: 4px solid var(--orange);
+  width: 50%;
+  margin-bottom: 0;
+}
 .btn:checked {
   border-bottom: 4px solid var(--orange);
   margin-bottom: 0;

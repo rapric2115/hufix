@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <nav class="d-flex">
         <ul class="nav">
-          <li class="btn-lg btn active"><a class="p-1" [routerLink]="['./sell']" routerLinkActive="router-link-active" (click)="show = !show">Sell Device</a></li>
-          <li class="btn-lg btn"><a class="p-1" [routerLink]="['./track']" routerLinkActive="router-link-active" >Track Order</a></li>
+          <li class="btn-lg btn active" id="sell"><a class="p-1" [routerLink]="['./sell']" routerLinkActive="router-link-active">Sell Device</a></li>
+          <li class="btn-lg btn" id="track"><a class="p-1" [routerLink]="['./track']" routerLinkActive="router-link-active" (click)="trackEvent($event)">Track Order</a></li>
         </ul>
     </nav>
       <router-outlet></router-outlet>

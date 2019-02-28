@@ -8,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavSwitchComponent implements OnInit {
 
   constructor() { }
-  isActive = false;
 
   classState() { }
 
+  trackEvent(event) {
+    //Haven't really got far
+    let sellD = document.getElementById('sell');
+    sellD.classList.remove('active');
+ }
   ngOnInit() {
   }
 }
