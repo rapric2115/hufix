@@ -1,0 +1,45 @@
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.subTitle {
+  color: lightskyblue;
+}
+.bg-color {
+  background-color: var(--dark-blue);
+  margin-top: 2%;
+}
+.container {
+  padding: 5%;
+  color: snow;
+  padding-bottom: 2%;
+}
+.container ul {
+  list-style: none;
+}
+.social {
+  color: snow;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.social li {
+  padding: 3rem;
+  font-size: 1.8rem;
+}
+.copy {
+  background-color: var(--darkes-blue);
+}
+.crights {
+  color: snow;
+  text-align: center;
+  font-size: .7rem;
+  padding: 1%;
+}
+
+@media (max-width: 568px) {
+  .social li {
+    padding: 5%;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,111 @@
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+.bgimg {
+  background-image: url(../../../assets/img/background.png);
+  /* background-color: blue; */
+  height: 65vh;
+  width: 100%;
+  z-index: -10;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h3 {
+  padding-top: 20%;
+  color: snow;
+  font-size: 1.3rem;
+  width: 100%;
+}
+h3::before {
+  content: 'Sell';
+  color: var(--orange);
+}
+p {
+  color: snow;
+  padding-top: 5%;
+  width: 100%;
+}
+
+.group {
+  width: 100%;
+  margin: auto;
+  margin-right: 0;
+  margin-left: 0;
+}
+.center {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -40%);
+  transform: translate(-50%, -40%);
+  -ms-transform: translate(-50%, -40%);
+}
+.text-center {
+  text-align: center;
+  width: 100%
+}
+.inp-sec {
+  width: 85%;
+}
+.l-border {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.custom-btn {
+  margin-left: -.8rem;
+  position: relative;
+  border-radius: 50%;
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+  background-color: var(--orange);
+  color: snow !important;
+  border: none;
+}
+.fa-angle-right {
+  color: snow;
+}
+.cat-seccion {
+  padding-top: 35%;
+}
+.input-group  {
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+select:not(:first-child){
+  width: 50%;
+}
+
+
+
+/*Media Queries Responsive Css*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .center {
+    top: 55% !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* No greater than 450px, no less than 350px */
+@media (max-width:450px) and (min-width:350px) {
+  .center {
+    top: 45% !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

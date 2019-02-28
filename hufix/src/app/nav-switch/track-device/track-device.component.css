@@ -1,0 +1,62 @@
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+.bgimg {
+  background-image: url(../../../assets/img/background.png);
+  /* background-color: blue; */
+  height: 65vh;
+  width: 100%;
+  z-index: -10;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h3 {
+  padding-top: 20%;
+  color: snow;
+  font-size: 1.3rem;
+  width: 100%;
+}
+h3::before {
+  content: 'Track';
+  color: var(--orange);
+}
+p {
+  color: snow;
+  padding-top: 5%;
+  width: 100%;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+.text-center {
+  text-align: center;
+  width: 100%
+}
+.inp-sec {
+  width: 85%;
+}
+input {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.custom-btn {
+  margin-left: -.8rem;
+  position: relative;
+  border-radius: 50%;
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+  background-color: var(--orange);
+}
+.fa-angle-right {
+  color: snow;
+}
+.cat-seccion {
+  padding-top: 35%;
+}
+

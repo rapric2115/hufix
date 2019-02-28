@@ -1,0 +1,35 @@
+.card {
+  margin-bottom: 5%;
+}
+.card-img-overlay {
+  top: 60%;
+  background-color: rgba(0, 45, 69, .5);
+}
+.card-tit {
+  background-color: snow;
+  color: darkgray;
+  position: relative;
+  left: -10%;
+  padding: 2%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 60%;
+}
+h3 {
+  margin-bottom: 3%;
+  color: snow;
+  padding: 5%;
+}
+.bg-img {
+  background-color: var(--bg-color);
+  position: absolute;
+  height: 35%;
+  z-index: -10;
+}
+.card-img {
+  justify-content: center;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}

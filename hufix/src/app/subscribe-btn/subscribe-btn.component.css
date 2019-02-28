@@ -1,0 +1,36 @@
+.input-group-text {
+  border-radius: 50%;
+  background-color: var(--bg-color);
+}
+.input-group {
+  max-width: 50%;
+}
+h3 {
+  margin-top: 10%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+input {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+.input-group-text {
+  background-color: var(--light-blue);
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+  position: relative;
+  margin-left: -40% !important;
+}
+.fa-chevron-right {
+  color: snow;
+}
+
+@media (max-width: 568px) {
+  .input-group {
+    max-width: 80%;
+  }
+}

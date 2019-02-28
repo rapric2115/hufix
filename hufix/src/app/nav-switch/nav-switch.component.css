@@ -1,0 +1,30 @@
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  z-index: 9999;
+}
+.nav {
+  width: 100%;
+}
+.btn-lg {
+  width: 50%;
+  background-color: var(--bg-color);
+  border-radius: 0;
+}
+.btn-lg a {
+  text-decoration: none;
+}
+
+.btn a {
+  color: snow;
+}
+.btn:hover {
+  border-bottom: 4px solid var(--orange);
+  width: 50%;
+  margin-bottom: 0;
+}
+
+.btn:checked {
+  border-bottom: 4px solid var(--orange);
+  margin-bottom: 0;
+}

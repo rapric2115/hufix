@@ -1,0 +1,31 @@
+<app-side-nav></app-side-nav>
+      <nav class="navbar navbar-expand-md navbar-light bg-color-w shadow">
+          <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+              <img src="../../favicon.ico" width="30" height="30" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav justify-content-end">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Sell Device</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Track Order</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" *ngIf="auth.afAuth.authState | async as user; else showLogin">Hello {{ user.displayName }}</a>
+                    <button *ngIf="auth.afAuth.authState | async as user" class="btn btn-outline-secondary btn-sm" (click)="auth.logout()">Logout</button>
+                    <ng-template #showLogin>
+                        <button class="btn btn-outline-danger btn-sm" (click)="auth.login()">Login Account</button>
+                      </ng-template>
+                  </li>
+                </ul>
+          </div>
+        </nav>
+        <app-nav-switch></app-nav-switch>

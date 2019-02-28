@@ -1,0 +1,12 @@
+.text-muted {
+  font-size: .8rem;
+}
+.nav {
+  margin-right: 3rem;
+  font-size: .5rem;
+}
+@media (max-width: 567px){
+  .nav {
+    display: none;
+  }
+}

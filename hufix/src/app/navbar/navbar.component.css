@@ -1,0 +1,31 @@
+.navbar {
+  margin-top: -.8rem;
+  z-index: 9999;
+}
+.navbar-brand {
+  padding-left: 0;
+}
+.nav {
+  display: block;
+  text-align: center;
+}
+.nav-item {
+  display: flex;
+}
+
+@media (min-width: 576px) {
+  .navbar-brand {
+    padding-left: 5rem;
+  }
+  .nav {
+    display: flex;
+  }
+ }
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-collapse {
+      display: block !important;
+      flex-basis: auto;
+      margin-right: 3rem;
+  }
+}

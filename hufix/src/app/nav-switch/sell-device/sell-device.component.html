@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <header class="bgimg display-container">
+    <h3 class="text-center">
+       your device for a great price
+    </h3>
+    <p class="text-center">
+      Choose the product you'd like to sell
+    </p>
+      <div class="center text-center inp-sec">
+          <div class="group">
+          <div class="input-group">
+              <select [(ngModel)]="mainBrands" class="l-border">
+                  <option disabled [ngValue]="null">Brands</option>
+                  <option [ngValue]="brand" *ngFor="let brand of Brands">{{brand.name}}</option>
+              </select>
+              <select [(ngModel)]="Models">
+                    <option disabled [ngValue]="null">Models</option>
+                    <option [ngValue]="model" *ngFor="let model of filterById(mainBrands.id)">{{ model.title }}</option>
+              </select>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary custom-btn" type="submit" [routerLink]="['/details']" routerLinkActive="router-link-active" >
+                  <i class="fas fa-angle-right"></i>
+                </button>
+              </div>
+         </div>
+         </div>
+       </div>
+       <p class="text-center cat-seccion">
+         Or choose a Category <br/>
+         <i class="fas fa-chevron-down"></i>
+       </p>
+      </header>
+</div>

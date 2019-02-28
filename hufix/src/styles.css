@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg-color: #002d45;
+  --orange : #d98100;
+  --bg-orange: #ff9900;
+  --light-blue: #0073e4;
+  --dark-blue: #002d45; /* footer */
+  --darkes-blue: #001926; /* mini-footer */
+}

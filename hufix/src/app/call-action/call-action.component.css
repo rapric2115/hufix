@@ -1,0 +1,29 @@
+.bg-color {
+  background-color: var(--dark-blue);
+  color: snow;
+  margin-top: 10%;
+  padding: 5%;
+}
+.btn-orange {
+  background-color: var(--bg-orange);
+  color: snow;
+  margin-top: 2rem;
+}
+.btn-blue {
+  background-color: var(--bg-color);
+  color: snow;
+}
+.pad-5 {
+  padding: 5%;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.btn-lg {
+  border-radius: 25px;
+  margin-top: 6%;
+}
+.pad {
+  padding: 4%;
+}

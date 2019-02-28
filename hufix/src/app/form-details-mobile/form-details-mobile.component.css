@@ -1,0 +1,45 @@
+.matButton {
+  margin-right: .5rem;
+}
+.phone {
+  margin: auto;
+  display: flex;
+  align-content: center;
+  width: 10rem;
+}
+
+span {
+  text-align: center;
+}
+
+label {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+label:hover {
+  filter: grayscale(0);
+}
+input[type="radio"]:checked + label {
+  filter: grayscale(0);
+}
+
+/* Radio buttons*/
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+@media (max-width: 568px) {
+  .phone {
+    width: 6rem;
+  }
+}
