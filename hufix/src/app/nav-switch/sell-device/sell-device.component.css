@@ -28,12 +28,12 @@ p {
   width: 100%;
 }
 
-.group {
+/*.group {
   width: 100%;
   margin: auto;
   margin-right: 0;
   margin-left: 0;
-}
+}*/
 .center {
   position: absolute;
   top: 35%;
@@ -46,12 +46,14 @@ p {
   text-align: center;
   width: 100%
 }
-.inp-sec {
+/*.inp-sec {
   width: 85%;
-}
+}*/
 .l-border {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 .custom-btn {
   margin-left: -.8rem;
@@ -69,12 +71,33 @@ p {
 .cat-seccion {
   padding-top: 35%;
 }
-.input-group  {
+/*.input-group  {
   flex-wrap: nowrap;
   justify-content: center;
-}
+}*/
 select:not(:first-child){
   width: 50%;
+}
+
+/* modifying input css */
+.inp-sec {
+  width: 70%;
+}
+.group {
+  width: 70%;
+  margin: auto;
+  justify-content: center;
+  /* margin-right: 0; */
+  /* margin-left: 0; */
+}
+.input-group {
+  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    /* width: 70%; */
+    justify-content: center;
+    margin-top: 10%;
 }
 
 
@@ -84,6 +107,12 @@ select:not(:first-child){
 @media only screen and (max-width: 600px) {
   .center {
     top: 55% !important;
+  }
+  .inp-sec {
+    width: 99%;
+  }
+  .group {
+    width: 100%;
   }
 }
 

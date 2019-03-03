@@ -1,144 +1,191 @@
-<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button> -->
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel></ng-template>
-          <div class="card">
-            <label class="card-header" id="headingOne">
-             <h5 class="mb-0">
-               <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                 1.1 Choose your Phone
-               </button>
-             </h5>
-           </label> <!-- Title heading -->
-               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-               <div class="card-body row">
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
 
-                     <input type="radio" name="gender" class="sr-only" id="iphonex">
-         <label for="iphonex" class="text-center">
-           <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
-           <span>iPhone Xs</span>
-         </label>
-                  <!-- phone One -->
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel></ng-template>
 
-                    <input type="radio" name="gender" class="sr-only" id="iphone9">
-         <label for="iphone9" class="text-center">
-           <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphone9" class="img-fluid phone">
-           <span>iPhone x</span>
-         </label>
-                <!-- phone Two -->
-                 <input type="radio" name="gender" class="sr-only" id="iphone9s">
-         <label for="iphone9s" class="text-center">
-           <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphone9s" class="img-fluid phone">
-           <span>iPhone 9</span>
-         </label>
-                 <!-- phone three -->
-               </div><!-- Card Body -->
-           </div>
-         </div><!-- Card Form select phone -->
-         <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                1.2 Select Your Carrier
-              </button>
-            </h2>
-          </div><!-- Heading Two -->
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteCarrier">
-              <mat-radio-button class="example-radio-button" *ngFor="let carrier of carriers" [value]="carrier">
-                {{carrier}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <div class="example-selected-value">Your Choosen Carrier is: {{favoriteCarrier}}</div>
-          </div><!-- Card Selecting the Carrier -->
-         </div><!-- Card Ends -->
-
-         <div class="card">
-          <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                1.3 Select Your Carrier
-              </button>
-            </h2>
-          </div><!-- Heading Two -->
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <mat-radio-group class="example-radio-group" [(ngModel)]="mobileStorage">
-              <mat-radio-button class="example-radio-button" *ngFor="let stge of storage" [value]="stge">
-                {{stge}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <div class="example-selected-value">Your device storage is: {{mobileStorage}}</div>
-          </div><!-- Card Selecting the Carrier -->
-         </div><!-- Card Ends -->
-          <div>
-            <button mat-button matStepperNext class="btn btn-outline-success matButton">Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel></ng-template>
-          <div class="card">
-          <div class="card-header" id="headingFour">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                2.1 What is the Condition of the device?
-              </button>
-            </h2>
-          </div><!-- Heading Two -->
-          <mat-radio-group class="example-radio-group" [(ngModel)]="mobileCondition">
-            <mat-radio-button class="example-radio-button" *ngFor="let cond of condition" [value]="cond">
-              {{cond}}
-            </mat-radio-button>
-          </mat-radio-group>
-          <div class="example-selected-value">Your device condition is: {{mobileCondition}}</div>
-          </div>
-          <div class="card">
-          <div class="card-header" id="headingFour">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                2.1 What is the Condition of the device?
-              </button>
-            </h2>
-          </div><!-- Heading Two -->
-          <mat-radio-group class="example-radio-group" [(ngModel)]="mobileCondition">
-            <mat-radio-button class="example-radio-button" *ngFor="let cond of condition" [value]="cond">
-              {{cond}}
-            </mat-radio-button>
-          </mat-radio-group>
-          <div class="example-selected-value">Your device condition is: {{mobileCondition}}</div>
-          </div>
-          <!-- 2.2 section -->
-          <div class="card">
-              <div class="card-header" id="headingFive">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    2.2 Does the Device power On?
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    1.1 Choose Your Phone
                   </button>
                 </h2>
-              </div><!-- Heading Two -->
-              <mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff">
-                <mat-radio-button class="example-radio-button" *ngFor="let pow of powerOnOff" [value]="pow">
-                  {{pow}}
-                </mat-radio-button>
-              </mat-radio-group>
-              <div class="example-selected-value">Your device condition is: {{devicePowerOnOff}}</div>
               </div>
-          <div>
-            <button mat-button matStepperPrevious class="btn btn-outline-danger matButton">Back</button>
-            <button mat-button matStepperNext class="btn btn-outline-success matButton">Next</button>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body row">
+                    <input type="radio" name="iphonex" class="sr-only" id="iphonex"/>
+                      <label for="iphonex" class="text-center">
+                        <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                        <span>iPhone Xs</span>
+                      </label><!-- phone One -->
+                    <input type="radio" name="mobile" class="sr-only" id="iphone9">
+                      <label for="iphone9" class="text-center">
+                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphone9" class="img-fluid phone">
+                      <span>iPhone x</span>
+                      </label><!-- phone Two -->
+                            <input type="radio" name="mobile" class="sr-only" id="iphone9s">
+                      <label for="iphone9s" class="text-center">
+                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphone9s" class="img-fluid phone">
+                      <span>iPhone 9</span>
+                      </label><!-- phone three -->
+                </div><!-- Card Body -->
           </div>
-        </form>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel></ng-template>
-        You are now done.
-        <div>
-          <button mat-button matStepperPrevious class="btn btn-outline-warning matButton">Back</button>
-          <button mat-button (click)="stepper.reset()" class="btn btn-outline-secondary matButton">Reset</button>
+        </div><!-- Cards Ends-->
+
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  1.2 Select Your Carrier
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <!-- PONER UN NG-TEMPLATE PARA EL PONER MOBIL SELECCIONADO -->
+               <div class="text-center">
+                  <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                  <span>Your Mobile Selected iPhone Xs</span>
+               </div>
+               <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteCarrier">
+                  <mat-radio-button class="example-radio-button" *ngFor="let c of carriers" [value]="c">
+                    {{c.name}} <img src="{{c.url}}" alt="{{c.name}}" class="img-fluid carrier-img">
+                  </mat-radio-button>
+                </mat-radio-group>
+                <div class="example-selected-value">Your Selected Carrier is: {{favoriteCarrier}}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    1.3 Choose Your Storage Size
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  <!-- NG TEMPLATE -->
+                    <div class="text-center">
+                        <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                        <span>Your Mobile Selected iPhone Xs, Verizon</span>
+                     </div>
+                    <mat-radio-group class="example-radio-group" [(ngModel)]="mobileStorage">
+                        <mat-radio-button class="example-radio-button" *ngFor="let s of storage" [value]="s">
+                          {{s}}
+                        </mat-radio-button>
+                      </mat-radio-group>
+                      <div class="example-selected-value">Your Storage Size is: {{mobileStorage}}</div>
+                </div>
+              </div>
+            </div>
+         </div>
+      <div>
+        <button mat-button matStepperNext class="btn btn-outline-info">Next</button>
+      </div>
+    </form>
+
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel></ng-template>
+      <div class="accordion" id="accordionExampletwo">
+          <div class="card">
+            <div class="card-header" id="One">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                  2.1 What is the condition of the device
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseTwo" class="collapse show" aria-labelledby="One" data-parent="#accordionExampletow">
+              <div class="card-body">
+                <!-- NG TEMPLATE -->
+                  <div class="text-center">
+                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                      <span>Your Mobile Selected iPhone Xs, Verizon, 256 GB</span>
+                   </div>
+                  <mat-radio-group class="example-radio-group" [(ngModel)]="deviceCondition">
+                      <mat-radio-button class="example-radio-button" *ngFor="let con of conditions" [value]="con">
+                        <strong>{{con.condition}}</strong> <br> <p class="small">{{con.desc}}</p>
+                      </mat-radio-button>
+                    </mat-radio-group>
+                    <div class="example-selected-value">Your Device Condition is: {{deviceCondition}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="Two">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  2.2 Does the Device Power On
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwoTwo" class="collapse" aria-labelledby="Two" data-parent="#accordionExample">
+              <div class="card-body">
+                 <!-- NG TEMPLATE -->
+                 <div class="text-center">
+                    <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                    <span>Your Mobile Selected iPhone Xs, Verizon, 256 GB</span>
+                 </div>
+                  <mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff">
+                      <mat-radio-button class="example-radio-button" *ngFor="let p of powerOnOff" [value]="p">
+                        {{p}}
+                      </mat-radio-button>
+                    </mat-radio-group>
+                    <div class="example-selected-value">Your favorite season is: {{devicePowerOnOff}}</div>
+
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwoThree">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  2.3 Does your Phone have a bad imai
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwoThree" class="collapse" aria-labelledby="headingTwoThree" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+              <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    2.4 Checkout
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
         </div>
-      </mat-step>
-    </mat-horizontal-stepper>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -28,7 +28,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { MatFormFieldModule,
          MatInputModule,
          MatExpansionModule,
-         MatRadioModule } from '@angular/material';
+         MatRadioModule,
+         MatSelectModule } from '@angular/material';
 import { FormDetailsMobileComponent } from './form-details-mobile/form-details-mobile.component';
 
 
@@ -63,7 +64,8 @@ import { FormDetailsMobileComponent } from './form-details-mobile/form-details-m
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   exports: [
     BrowserAnimationsModule,

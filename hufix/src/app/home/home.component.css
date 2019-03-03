@@ -75,7 +75,31 @@ header {
   flex: 1 20%;
 }
 .cont-img img{
+  width: 2rem;
+}
+/* Tablet android
+.flex-container > div:nth-child(5) img {
+  width: 3rem;
+}*/
+/* Laptop windows */
+.flex-container > div:nth-child(6) img {
+  width: 5rem;
+}
+/* laptop MacBook */
+.flex-container > div:nth-child(7) img {
+  width: 5rem;
+}
+/* Surface studio*/
+.flex-container > div:nth-child(8) img {
   width: 4rem;
+}
+/* iMac */
+.flex-container > div:nth-child(9) img {
+  width: 4rem;
+}
+/* All Device */
+.flex-container > div:nth-child(12) img {
+  width: 6rem;
 }
 
 @media (max-width: 568px) {
@@ -112,4 +136,24 @@ header {
   h4 {
     font-size: 1rem;
   }
+  /* Laptop windows */
+.flex-container > div:nth-child(6) img {
+  width: 4rem;
+}
+/* laptop MacBook */
+.flex-container > div:nth-child(7) img {
+  width: 4rem;
+}
+/* Surface studio*/
+.flex-container > div:nth-child(8) img {
+  width: 3rem;
+}
+/* iMac */
+.flex-container > div:nth-child(9) img {
+  width: 3rem;
+}
+/* All Device */
+.flex-container > div:nth-child(12) img {
+  width: 5rem;
+}
 }

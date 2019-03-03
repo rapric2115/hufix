@@ -38,8 +38,27 @@ input[type="radio"]:checked + label {
   margin: 15px 0;
 }
 
+.carrier-img {
+  width: 3rem;
+}
+
 @media (max-width: 568px) {
   .phone {
     width: 6rem;
   }
+}
+
+
+/* CSS de Pruebas */
+.option1{
+  background:  url("https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg")  center / contain no-repeat;
+  white-space: nowrap
+
+}
+
+
+.option2{
+  background:  url("https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg")  center / contain no-repeat;
+  white-space: nowrap;
+  display:inline
 }
