@@ -41,10 +41,68 @@ input[type="radio"]:checked + label {
 .carrier-img {
   width: 3rem;
 }
+.m-btn {
+  padding: .5rem;
+  background-color: #ccc;
+}
+
+.text-dev_price {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--orange);
+}
+.btn-checkout {
+  background-color: var(--bg-color);
+  color: snow;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.btn-process_checkout {
+  background-color: var(--bg-color);
+  color: snow;
+  border-radius: 30px;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+hr {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  width: 14rem;
+  color: var(--bg-color);
+  font-weight: 800;
+  border-top: 2px solid var(--bg-color);
+  margin-left: 40%;
+}
+ul {
+  padding-inline-start: 0 !important;
+}
+ul li {
+  list-style: none;
+}
+.quantity {
+  display: flex;
+  flex-wrap: wrap;
+}
+.quantity input {
+  width: 45%;
+  border-radius: 15px;
+}
 
 @media (max-width: 568px) {
   .phone {
     width: 6rem;
+  }
+  .col-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  hr {
+    display: none;
   }
 }
 

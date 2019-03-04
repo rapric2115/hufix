@@ -8,6 +8,8 @@ import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 })
 export class FormDetailsMobileComponent implements OnInit {
 
+  show = false;
+  iphone9 = true;
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -66,6 +68,8 @@ export class FormDetailsMobileComponent implements OnInit {
   condition: string[] = ['Excellent', 'Good', 'Fair', 'Broken'];
   devicePowerOnOff: string;
   powerOnOff: string[] = ['Yes', 'No'];
+  deviceBadImai: string;
+  badImai: string[] = ['Yes', 'No'];
 
 
   // Pruebas en el codigo fuente

@@ -8,24 +8,25 @@
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <button class="btn btn-link" type="button" data-toggle="collapse"
+                   data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     1.1 Choose Your Phone
                   </button>
                 </h2>
               </div>
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body row">
-                    <input type="radio" name="iphonex" class="sr-only" id="iphonex"/>
+                    <input type="radio" name="mobile" class="sr-only" id="iphonex" *ngIf="show"/>
                       <label for="iphonex" class="text-center">
                         <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
                         <span>iPhone Xs</span>
                       </label><!-- phone One -->
-                    <input type="radio" name="mobile" class="sr-only" id="iphone9">
-                      <label for="iphone9" class="text-center">
-                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphone9" class="img-fluid phone">
-                      <span>iPhone x</span>
-                      </label><!-- phone Two -->
-                            <input type="radio" name="mobile" class="sr-only" id="iphone9s">
+                    <input type="radio" name="mobile" class="sr-only" id="iphone9" *ngIf="iphone9">
+                        <label for="iphone9" class="text-center">
+                          <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphone9" class="img-fluid phone">
+                          <span>iPhone x</span>
+                        </label><!-- phone Two -->
+                      <input type="radio" name="mobile" class="sr-only" id="iphone9s">
                       <label for="iphone9s" class="text-center">
                       <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphone9s" class="img-fluid phone">
                       <span>iPhone 9</span>
@@ -37,7 +38,8 @@
         <div class="card">
             <div class="card-header" id="headingTwo">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   1.2 Select Your Carrier
                 </button>
               </h2>
@@ -45,10 +47,12 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
                 <!-- PONER UN NG-TEMPLATE PARA EL PONER MOBIL SELECCIONADO -->
-               <div class="text-center">
-                  <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
-                  <span>Your Mobile Selected iPhone Xs</span>
-               </div>
+              <ng-template #show>
+                  <div class="text-center">
+                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                      <span>Your Mobile Selected iPhone Xs</span>
+                  </div>
+              </ng-template>
                <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteCarrier">
                   <mat-radio-button class="example-radio-button" *ngFor="let c of carriers" [value]="c">
                     {{c.name}} <img src="{{c.url}}" alt="{{c.name}}" class="img-fluid carrier-img">
@@ -62,7 +66,8 @@
           <div class="card">
               <div class="card-header" id="headingThree">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                  data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     1.3 Choose Your Storage Size
                   </button>
                 </h2>
@@ -94,22 +99,26 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel></ng-template>
       <div class="accordion" id="accordionExampletwo">
-          <div class="card">
-            <div class="card-header" id="One">
+        <div class="card">
+          <div class="card-header" id="headingFour">
               <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link" type="button" data-toggle="collapse"
+                data-target="#CollapseFour" aria-expanded="true" aria-controls="collapseFour">
                   2.1 What is the condition of the device
                 </button>
               </h2>
             </div>
-
-            <div id="collapseTwo" class="collapse show" aria-labelledby="One" data-parent="#accordionExampletow">
+            <div id="collapseFour" class="collapse show" aria-labelledby="headingFour"
+            data-parent="#accordionExampletwo">
               <div class="card-body">
                 <!-- NG TEMPLATE -->
+
                   <div class="text-center">
-                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png"
+                      alt="iphonex" class="img-fluid phone">
                       <span>Your Mobile Selected iPhone Xs, Verizon, 256 GB</span>
                    </div>
+
                   <mat-radio-group class="example-radio-group" [(ngModel)]="deviceCondition">
                       <mat-radio-button class="example-radio-button" *ngFor="let con of conditions" [value]="con">
                         <strong>{{con.condition}}</strong> <br> <p class="small">{{con.desc}}</p>
@@ -120,65 +129,209 @@
             </div>
           </div>
           <div class="card">
-            <div class="card-header" id="Two">
+            <div class="card-header" id="headingFive">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                   2.2 Does the Device Power On
                 </button>
               </h2>
             </div>
-            <div id="collapseTwoTwo" class="collapse" aria-labelledby="Two" data-parent="#accordionExample">
+            <div id="collapseFive" class="collapse" aria-labelledby="Two" data-parent="#accordionExampletwo">
               <div class="card-body">
                  <!-- NG TEMPLATE -->
-                 <div class="text-center">
-                    <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
-                    <span>Your Mobile Selected iPhone Xs, Verizon, 256 GB</span>
-                 </div>
+                 <ng-template #show >
+                  <div class="text-center">
+                      <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                      <span>Your Mobile Selected iPhone Xs, Verizon, 256 GB</span>
+                  </div>
+                </ng-template>
                   <mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff">
                       <mat-radio-button class="example-radio-button" *ngFor="let p of powerOnOff" [value]="p">
                         {{p}}
                       </mat-radio-button>
                     </mat-radio-group>
-                    <div class="example-selected-value">Your favorite season is: {{devicePowerOnOff}}</div>
+                    <div class="example-selected-value">Your Device power on: {{devicePowerOnOff}}</div>
 
               </div>
             </div>
           </div>
           <div class="card">
-            <div class="card-header" id="headingTwoThree">
+            <div class="card-header" id="headingSix">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                   2.3 Does your Phone have a bad imai
                 </button>
               </h2>
             </div>
-            <div id="collapseTwoThree" class="collapse" aria-labelledby="headingTwoThree" data-parent="#accordionExample">
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+            data-parent="#accordionExampletwo">
               <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <mat-radio-group class="example-radio-group" [(ngModel)]="deviceBadImai">
+                  <mat-radio-button class="example-radio-button" *ngFor="let i of badImai" [value]="i">
+                        {{i}}
+                  </mat-radio-button>
+                </mat-radio-group>
+                <div class="example-selected-value">Your Have a Bad imai: {{deviceBadImai}}</div>
               </div>
             </div>
           </div>
           <div class="card">
-              <div class="card-header" id="headingFour">
+              <div class="card-header" id="headingSeven">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                   data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                     2.4 Checkout
                   </button>
                 </h2>
               </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExampletwo">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <div class="text-center">
+                        <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                        <span>Your Mobile Selected iPhone Xs, Verizon, 256 GB</span>
+                    </div>
+                    <p class="text-center">
+                      <strong class="text-dev_price">$425.00</strong>
+                    </p>
+                    <div class="text-center">
+                      <button class="btn btn-checkout">Checkout</button>
+                    </div>
+                    <hr>
+                    <p>
+                      *Payment will be sent within 24 business hours after the device is received,
+                      if condition is as described.
+                    </p>
+                    <p>
+                      **This Quotes is Valid For 20 Days and Will Expire On 03/08/2019.
+                    </p>
                 </div>
               </div>
             </div>
         </div>
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious class="btn btn-outline-danger">Back</button>
+        <button mat-button matStepperNext class="btn btn-outline-info">Next</button>
       </div>
     </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <div class="accordion" id="accordionExampleThree">
+            <div class="card">
+              <div class="card-header" id="headingEight">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse"
+                   data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                    3.1 <b>Your selling cart</b>
+                  </button>
+                </h2>
+              </div>
+            </div>
+              <div id="collapseEight" class="collapse show m-btn" aria-labelledby="headingEight" data-parent="#accordionExampleThree">
+                  <div class="card">
+                      <div class="card-body row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                                </div>
+                                <div class="col-4">
+                                  <strong>Iphone X</strong>
+                                  <ul>
+                                    <li>Carrier: AT&T</li>
+                                    <li>Condition: Good</li>
+                                    <li>Storage: 128gb</li>
+                                  </ul>
+                                  <hr>
+                                </div>
+                                <div class="col-4">
+                                    <strong>Price</strong>
+                                    <ul>
+                                      <li>$425</li>
+                                    </ul>
+                                    <div class="quantity">
+                                        <strong>Quantity</strong>
+                                        <input type="number" value="1">
+                                      </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                                </div>
+                                <div class="col-4">
+                                  <strong>Iphone X</strong>
+                                  <ul>
+                                    <li>Carrier: AT&T</li>
+                                    <li>Condition: Good</li>
+                                    <li>Storage: 128gb</li>
+                                  </ul>
+                                  <hr>
+                                </div>
+                                <div class="col-4">
+                                    <strong>Price</strong>
+                                    <ul>
+                                      <li>$425</li>
+                                    </ul>
+                                    <div class="quantity">
+                                      <strong>Quantity</strong>
+                                      <input type="number" value="1">
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-5">
+                      <ul>
+                        <li>Total Price</li>
+                        <li><strong>$637.50</strong></li>
+                      </ul>
+                    </div>
+                    <div class="col-7">
+                      <button class="btn btn-process_checkout btn-sm">Process Checkout</button>
+                    </div>
+                  </div>
+              </div>
+            <div class="card">
+              <div class="card-header" id="headingNine">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                  data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                    3.2 Billing details
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExampleThree">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTen">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                   data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                    3.3 Payment Method
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExampleThree">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+      </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
