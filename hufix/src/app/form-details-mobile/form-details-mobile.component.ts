@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-form-details-mobile',
@@ -13,6 +15,7 @@ export class FormDetailsMobileComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
   favoriteCarrier: string;
   carriers: any[] = [
     { 'id' : 1,
@@ -70,9 +73,12 @@ export class FormDetailsMobileComponent implements OnInit {
   powerOnOff: string[] = ['Yes', 'No'];
   deviceBadImai: string;
   badImai: string[] = ['Yes', 'No'];
+  methodPayment: string;
+  payments: string[] = ['Ckeck Payment', 'Paypal', 'Zelle', 'Bitcoin'];
 
 
   // Pruebas en el codigo fuente
+  checked = false;
   selected: string;
   showMoreControls: string;
   favoriteSeason: string;
@@ -84,6 +90,10 @@ export class FormDetailsMobileComponent implements OnInit {
    });
   }
   panelOpenState = false;
+
+  success() {
+    swal('Your Order has been place', 'successfully', 'success');
+  }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({

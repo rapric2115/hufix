@@ -92,6 +92,17 @@ ul li {
   width: 45%;
   border-radius: 15px;
 }
+strong {
+  margin-right: 1rem;
+}
+.btn-orange {
+  background-color: var(--bg-orange);
+  color: snow;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 
 @media (max-width: 568px) {
   .phone {
