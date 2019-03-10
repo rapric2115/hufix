@@ -20,8 +20,15 @@ label {
 label:hover {
   filter: grayscale(0);
 }
-input[type="radio"]:checked + label {
+.example-radio-group {
+    display: inline-flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+}
+
+mat-radio-button:checked + label {
   filter: grayscale(0);
+  display: flex;
 }
 
 /* Radio buttons*/
@@ -103,6 +110,9 @@ strong {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+.mat-radio-container {
+  visibility: hidden !important;
+}
 
 @media (max-width: 568px) {
   .phone {
@@ -114,6 +124,9 @@ strong {
   }
   hr {
     display: none;
+  }
+  .col-md-3 {
+    width: 50%;
   }
 }
 

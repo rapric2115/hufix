@@ -1,3 +1,6 @@
+body, html {
+  background-color: beige;
+}
 header {
   z-index: 0;
 }
@@ -73,6 +76,7 @@ header {
 }
 .flex-container > * {
   flex: 1 20%;
+  background-color: #ffffff !important;
 }
 .cont-img img{
   width: 2rem;
@@ -135,6 +139,7 @@ header {
   }
   h4 {
     font-size: 1rem;
+    font-weight: bolder;
   }
   /* Laptop windows */
 .flex-container > div:nth-child(6) img {
