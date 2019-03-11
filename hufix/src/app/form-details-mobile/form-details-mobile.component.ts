@@ -1,27 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import {FocusMonitor} from '@angular/cdk/a11y';
+import {Component, ElementRef, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Validators, FormControl} from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
 // import swal from 'sweetalert';
 
 export interface QuantA {
   value: string;
   viewValue: string;
 }
+export interface QuantB {
+  value: string;
+  viewValue: string;
+}
+
 
 @Component({
   selector: 'app-form-details-mobile',
   templateUrl: './form-details-mobile.component.html',
-  styleUrls: ['./form-details-mobile.component.css']
+  styleUrls: ['./form-details-mobile.component.css'],
 })
+
+
 export class FormDetailsMobileComponent implements OnInit {
 
-  // Pruebas en el codigo fuente
+  // mail validation
+  email = new FormControl('', [Validators.required, Validators.email]);
+  paypalEmail = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private _formBuilder: FormBuilder) {
+  getErrorMesPaypal() {
+    return this.paypalEmail.hasError('required') ? 'You must enter a value' :
+      this.paypalEmail.hasError('paypalEmail') ? 'Not a valid email' :
+       '';
+  }
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter your Paypal email' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
+  }
+
+  constructor(private _formBuilder: FormBuilder, private snackBar: MatSnackBar) {
     this.firstFormGroup = new FormGroup({
       firstName: new FormControl()
    });
   }
 
+  hide = true;
   show = false;
   iphone9 = true;
   isLinear = false;
@@ -32,8 +57,8 @@ export class FormDetailsMobileComponent implements OnInit {
   fiveFormGroup: FormGroup;
   sixFormGroup: FormGroup;
   sevenFormGroup: FormGroup;
+  eightFormGroup: FormGroup;
   phoneModels: string;
-  value: string;
   viewValue: string;
 
   favoriteCarrier: string;
@@ -113,6 +138,12 @@ export class FormDetailsMobileComponent implements OnInit {
     {value: 'Three-3', viewValue: '3'},
     {value: 'Four-4', viewValue: '4'}
   ];
+  quantityB: QuantB[] = [
+    {value: 'One-1', viewValue: '1'},
+    {value: 'Two-2', viewValue: '2'},
+    {value: 'Three-3', viewValue: '3'},
+    {value: 'Four-4', viewValue: '4'}
+  ];
   firstName(firstName: any): import('@angular/forms').AbstractControl {
     throw new Error('Method not implemented.');
   }
@@ -120,6 +151,12 @@ export class FormDetailsMobileComponent implements OnInit {
   getValue($event) {
     let val = document.getElementById('phoneClient').nodeValue;
     console.log(val);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   /* success() {
@@ -148,6 +185,21 @@ export class FormDetailsMobileComponent implements OnInit {
     });
     this.sevenFormGroup = this._formBuilder.group({
       deviceQuantity: ['', Validators.required]
+    });
+    this.sevenFormGroup = this._formBuilder.group({
+      QuantityA: ['', Validators.required]
+    });
+    this.sevenFormGroup = this._formBuilder.group({
+      QuantityB: ['', Validators.required]
+    });
+    this.eightFormGroup = this._formBuilder.group({
+      name: ['', Validators.required]
+    });
+    this.eightFormGroup = this._formBuilder.group({
+      lastname: ['', Validators.required]
+    });
+    this.eightFormGroup = this._formBuilder.group({
+      payMethod: ['', Validators.required]
     });
   }
 }

@@ -30,7 +30,9 @@ import { MatFormFieldModule,
          MatExpansionModule,
          MatRadioModule,
          MatSelectModule,
-         MatCheckboxModule } from '@angular/material';
+         MatCheckboxModule,
+         MatIconModule,
+         MatSnackBarModule } from '@angular/material';
 import { FormDetailsMobileComponent } from './form-details-mobile/form-details-mobile.component';
 
 
@@ -67,7 +69,9 @@ import { FormDetailsMobileComponent } from './form-details-mobile/form-details-m
     MatExpansionModule,
     MatRadioModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   exports: [
     BrowserAnimationsModule,

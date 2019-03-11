@@ -298,12 +298,127 @@
                   </ul>
                 </div>
                 <div class="col-7">
-                  <button class="btn btn-sm btn-process_checkout"> Process Checkout</button>
+                  <button class="btn btn-sm btn-process_checkout" (click)="show = !show"> Process Checkout</button>
                 </div>
-              </div>
+           </div>
           </div>
       </form>
-      <form></form>
+      <form [formGroup]="eightFormGroup" *ngIf="show">
+        <div class="card">
+          <div class="card-header" id="headingBilling">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+              data-target="#collapseBilling" aria-expanded="false" aria-controls="collapseBilling">
+              3.2 Billing Details
+            </button>
+            </h2>
+          </div>
+          <div class="collapse" id="collapseBilling" aria-labelledby="headingBilling" data-parent="#accordionStepper">
+            <div class="card-body">
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput placeholder="Firts Name">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput placeholder="Last Name">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput placeholder="Company Name (optional)">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput placeholder="Street address">
+                    </mat-form-field>
+                    <div class="form-group">
+                        <mat-form-field>
+                            <input matInput placeholder="Apartment, suit, unit, etc. (optional)">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field>
+                            <input matInput placeholder="Town/ City">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field>
+                            <input matInput placeholder="State">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field>
+                            <input matInput placeholder="Zip">
+                        </mat-form-field>
+                    </div>
+                    <!-- Phone Number here -->
+                    <div class="form-group">
+                        <div class="example-container">
+                            <mat-form-field>
+                              <input matInput placeholder="Enter your email" [formControl]="email" required>
+                              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="example-container">
+                            <mat-form-field>
+                              <input matInput placeholder="Paypal Email (if Different from contact email)(optional)"
+                              [formControl]="paypalEmail" required>
+                              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field>
+                            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
+                          </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field>
+                            <textarea matInput placeholder="Order Notes (optional)"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div><!-- Billing Details Ends -->
+        <div class="card">
+          <div class="card-header" id="headingBillDetails">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+              data-target="#collapseBillDestails" aria-expanded="false" aria-controls="collapseBillDestails">
+              3.3 Payment Method
+            </button>
+            </h2>
+          </div>
+          <div class="collapse" id="collapseBillDestails" aria-labelledby="headingBillDestails"
+          data-parent="#accordionStepper">
+          <div class="card-body">
+              <mat-radio-group class="example-radio-group" [(ngModel)]="methodPayment" formControlName="payMethod">
+                  <mat-radio-button class="example-radio-button" *ngFor="let pm of payments" [value]="pm">
+                    {{pm}}
+                  </mat-radio-button>
+              </mat-radio-group>
+              <br>
+              <hr>
+              <p>Your Personal data will be used to process your order, support your experience throughout this website, and
+                for other purposes described in our privacy policy.
+              </p>
+              <div class="checkbox">
+                  <mat-checkbox>I have read and agree to the website
+                    <a [routerLink]="['/termCond']" routerLinkActive="router-link-active" >terms and conditions</a>
+                  </mat-checkbox>
+              </div>
+              <button class="btn btn-order" (click)="openSnackBar('your order has been place', 'successfully')">Place Order</button>
+          </div>
+        </div>
+        </div><!-- Cards ends Destails Bills-->
+      </form>
 
   </mat-step>
 

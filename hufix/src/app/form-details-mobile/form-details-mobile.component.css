@@ -129,6 +129,26 @@ small {
 .card-body-cart strong {
   margin-right: 0;
 }
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+.btn-order {
+  width: 100%;
+  background-color: var(--orange);
+  border-radius: 35px;
+  color: snow;
+  padding: 0.85rem;
+  font-size: 1.5rem;
+}
 
 @media (max-width: 568px) {
   .phone {
