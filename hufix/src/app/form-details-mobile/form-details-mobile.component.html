@@ -11,12 +11,14 @@
         <ng-template matStepLabel></ng-template>
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link" type="button" data-toggle="collapse"
+              data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 1.1 Choose your Phone
               </button>
             </h2>
           </div>
-          <div id="collapseOne" class="collapse row show" aria-labelledby="headingOne" data-parent="#accordionStepper">
+          <div id="collapseOne" class="collapse row show" aria-labelledby="headingOne"
+          data-parent="#accordionStepper">
               <div class="card-body">
                 <mat-radio-group class="example-radio-group" formControlName="firstCtrl"
                 [(ngModel)]="phoneModels">
@@ -35,7 +37,8 @@
       <form [formGroup]="secondFormGroup">
           <div class="card-header" id="headingTwo">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   1.2 Select your Carrier
                 </button>
               </h2>
@@ -71,87 +74,246 @@
           </div>
         </div>
       </div><!-- Third Card -->
-    <div>
-        <button mat-button matStepperNext class="btn btn-outline-info">Next</button>
+      <div>
+          <button mat-button matStepperNext class="btn btn-outline-info">Next</button>
       </div>
-  </mat-step>
+  </mat-step> <!-- First step ends -->
 </div>
+
   <mat-step [stepControl]="secondFormGroup">
-      <ng-template matStepLabel></ng-template>
-    <div> <img src="{{ phoneModels }}" alt="phones" class="img-fluid text-center"> </div>
-
-  </mat-step>
-  <mat-step [stepControl]="fourFormGroup">
-    <form [formGroup]="fourFormGroup">
-    <h2 class="text-center"> Help us give you an accurate price</h2>
-      <div class="text-center">
-          <img src="{{ phoneModels }}" alt="phones" class="img-fluid text-center">
-          <div class="example-selected-value"> {{favoriteCarrier}}</div>
-          <div class="example-selected-value"> {{mobileStorage}}</div>
-        <br>
-
-        <h3 class="text-center"> 2.1 What is the condition of the device?</h3>
-        <mat-radio-group class="example-radio-group" [(ngModel)]="deviceCondition" formControlName="condition">
-            <mat-radio-button class="example-radio-button" *ngFor="let con of conditions" [value]="con.condition">
-              <div class="paragraph">
-              <strong>{{con.condition}}</strong> <br> <p class="small">{{con.desc}}</p>
-              </div>
-            </mat-radio-button>
-          </mat-radio-group>
+    <ng-template matStepLabel></ng-template>
+    <div class="row" *ngIf='phoneModels'>
+      <div class="col-6">
+          <img src="{{ phoneModels }}" alt="phones" class="img-fluid text-center detailsImg">
       </div>
+      <div class="col-6">
+
+        <h5 class="text-center">Your Mobile Details</h5>
+          <ul>
+              <li><strong>{{ favoriteCarrier }}</strong></li>
+              <li><strong>{{ mobileStorage }}</strong></li>
+              <li><strong>{{ deviceCondition }}</strong></li>
+              <li><strong>{{ devicePowerOnOff }}</strong></li>
+              <li><strong>{{ deviceBadImai }}</strong></li>
+            </ul>
+      </div>
+    </div>
+    <form [formGroup]="fourFormGroup">
+        <h5 class="text-center"> Help us give you an accurate price</h5>
+        <div class="card">
+        <div class="card-header" id="headingCodition">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse"
+            data-target="#collapseCondition" aria-expanded="true" aria-controls="collapseCondition">
+          2.1 What is the condition fo the device
+          </button>
+          </h2>
+        </div>
+        <div id="collapseCondition" class="collapse show" aria-labelledby="headingCondition"
+         data-parent="#accordionStepper">
+            <div class="card-body">
+                <mat-radio-group class="example-radio-group" [(ngModel)]="deviceCondition" formControlName="condition">
+                    <mat-radio-button class="example-radio-button" *ngFor="let con of conditions" [value]="con.condition">
+                      <div class="paragraph">
+                      <strong>{{con.condition}}</strong> <br> <p class="small">{{con.desc}}</p>
+                      </div>
+                    </mat-radio-button>
+                  </mat-radio-group>
+            </div>
+        </div>
+      </div><!-- Condition device cards ends -->
       </form>
       <form [formGroup]="fiveFormGroup">
-
-        <h2 class="text-center">
-          2.2 Does the Device power on?
-        </h2>
-        <mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff" formControlName="powerOnOff">
-            <mat-radio-button class="example-radio-button" *ngFor="let p of powerOnOff" [value]="p">
-              {{p}}
-            </mat-radio-button>
-        </mat-radio-group>
-      </form>
-      <form [formGroup]="sixFormGroup">
-      <br>
-        <h2 class="text-center">
-          Does Your Phone have a Bad IMAI?
-        </h2>
-        <mat-radio-group class="example-radio-group" [(ngModel)]="deviceBadImai" formControlName="imai">
-            <mat-radio-button class="example-radio-button" *ngFor="let i of badImai" [value]="i">
-                  {{i}}
-            </mat-radio-button>
-          </mat-radio-group>
-      </form>
-      <form>
-        <h2 class="text-center">
-          Checkout
-        </h2>
-        <div class="checkout">
-            <img src="{{ phoneModels }}" alt="phones" class="img-fluid text-center">
-            <div class="example-selected-value"> {{favoriteCarrier}}</div>
-            <div class="example-selected-value"> {{mobileStorage}}</div>
-            <div class="example-selected-value">{{deviceCondition}}</div>
-            <div class="example-selected-value">{{devicePowerOnOff}}</div>
-            <div class="example-selected-value">{{deviceBadImai}}</div>
-            <p class="text-center">
-                <strong class="text-dev_price">$425.00</strong>
-              </p>
-              <div class="text-center">
-                <button class="btn btn-checkout">Checkout</button>
-              </div>
-              <hr>
-              <p>
-                *Payment will be sent within 24 business hours after the device is received,
-                if condition is as described.
-              </p>
-              <p>
-                **This Quotes is Valid For 20 Days and Will Expire On 03/08/2019.
-              </p>
+      <div class="card">
+        <div class="card-header" id="headingPower">
+           <h2 class="mb-0">
+             <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+             data-target="#collapsePower" aria-expanded="false" aria-controls="collapsePower">
+             2.2 Does the Device power on?
+            </button>
+           </h2>
         </div>
+        <div class="collapse" id="collapsePower" aria-labelledby="headingPower"
+        data-parent="#accordionStepper">
+          <div class="card-body">
+              <mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff" formControlName="powerOnOff">
+                  <mat-radio-button class="example-radio-button" *ngFor="let p of powerOnOff" [value]="p">
+                    {{p}}
+                  </mat-radio-button>
+              </mat-radio-group>
+          </div>
+      </div>
+      </div>
+    </form>
+    <form [formGroup]="sixFormGroup">
+      <div class="card">
+        <div class="card-header" id="headingImai">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+            data-target="#collapseImai" aria-expanded="false" aria-controls="collapseImai">
+            2.3 Does Your Phone have a Bad IMAI?
+          </button>
+          </h2>
+        </div>
+        <div class="collapse" id="collapseImai" aria-labelledby="headingImai"
+        data-parent="#accordionStepper">
+        <div class="card-body">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="deviceBadImai" formControlName="imai">
+                <mat-radio-button class="example-radio-button" *ngFor="let i of badImai" [value]="i">
+                      {{i}}
+                </mat-radio-button>
+              </mat-radio-group>
+        </div>
+      </div>
+      </div>
+    </form>
+    <div class="card">
+        <div class="card-header" id="headingCheckout">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+            data-target="#collapseCheckout" aria-expanded="true" aria-controls="collapseCheckout">
+              2.4 Checkout
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseCheckout" class="collapse" aria-labelledby="headingCheckout" data-parent="#accordionStepper">
+          <div class="card-body">
+            <div class="checkout" *ngIf="phoneModels">
+              <div class="row">
+                <div class="col-6">
+                  <img src="{{ phoneModels }}" alt="mobile Phone" class="img-fluid detailsImg">
+                </div>
+                <div class="col-6">
+                  <h5>
+                    Device Details
+                  </h5>
+                  <ul>
+                    <li><strong>{{ favoriteCarrier }}</strong></li>
+                    <li><strong>{{ mobileStorage }}</strong></li>
+                    <li><strong>{{ deviceCondition }}</strong></li>
+                    <li><strong>{{ devicePowerOnOff }}</strong></li>
+                    <li><strong>{{ deviceBadImai }} </strong></li>
+                  </ul>
+                </div>
+              </div>
+                <p class="text-center">
+                    <strong class="text-dev_price">$425.00</strong>
+                </p>
+                  <div class="text-center">
+                    <button mat-button matStepperNext class="btn btn-checkout">Checkout</button>
+                  </div>
+                  <hr>
+                  <p>
+                    *Payment will be sent within 24 business hours after the device is received,
+                    if condition is as described.
+                  </p>
+                  <p>
+                    **This Quotes is Valid For 20 Days and Will Expire On 03/08/2019.
+                  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </mat-step> <!-- Step 2 ends -->
+
+  <mat-step [stepControl]="sevenFormGroup">
+      <ng-template matStepLabel></ng-template>
+      <h5 class="text-center"> Your Selling Cart</h5>
+      <hr>
+      <p> we are almost done, just add the device you want and process. </p>
+      <form>
+          <div class="card">
+              <div class="card-body row card-body-cart">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{phoneModels}}" alt="iphonex" class="img-fluid phone cartImg">
+                        </div>
+                        <div class="col-6">
+                          <strong>Details</strong>
+                          <ul>
+                            <li>{{ favoriteCarrier }}</li>
+                            <li>{{ deviceCondition }}</li>
+                            <li>{{ mobileStorage }}</li>
+                            <li>{{ deviceBadImai }}</li>
+                          </ul>
+                          <hr>
+                        </div>
+                        <div class="col-2">
+                            <strong>Price</strong>
+                            <ul>
+                              <li>$425</li>
+                            </ul>
+                            <div class="quantity">
+                                <mat-form-field>
+                                    <mat-select placeholder="Quantity">
+                                      <mat-option *ngFor="let q of quantityA" [value]="q.value">
+                                        {{q.viewValue}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
+                        </div>
+                        <div class="col-4">
+                          <strong>Iphone X</strong>
+                          <ul>
+                              <li>Carrier: {{ favoriteCarrier }}</li>
+                              <li>Condition: {{ mobileCondition }}</li>
+                              <li>Storage: {{ mobileStorage }}</li>
+                              <li>Device IMAI: {{ deviceBadImai }}</li>
+                            </ul>
+                          <hr>
+                        </div>
+                        <div class="col-4">
+                            <strong>Price</strong>
+                            <ul>
+                              <li>$425</li>
+                            </ul>
+                            <div class="quantity">
+                                <mat-form-field>
+                                    <mat-select placeholder="Quantity">
+                                      <mat-option *ngFor="let q of quantityA" [value]="q.value">
+                                        {{q.viewValue}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  <ul>
+                    <li>Total Price</li>
+                    <li><strong>$637.5</strong></li>
+                  </ul>
+                </div>
+                <div class="col-7">
+                  <button class="btn btn-sm btn-process_checkout"> Process Checkout</button>
+                </div>
+              </div>
+          </div>
       </form>
+      <form></form>
+
+  </mat-step>
+
+  <!--
+
+  <mat-step [stepControl]="fourFormGroup">
+    <form [formGroup]="fourFormGroup">
       <button mat-button matStepperPrevious class="btn btn-outline-danger">Back</button>
       <button mat-button matStepperNext class="btn btn-outline-info">Next</button>
-  </mat-step>
+
   <mat-step [stepControl]="sevenFormGroup">
       <ng-template matStepLabel></ng-template>
       <form>
@@ -232,6 +394,6 @@
       <button mat-button (click)="stepper.reset()" class="btn btn-outline-secundary">Reset</button>
     </div>
   </mat-step>
-
+-->
 </mat-horizontal-stepper>
 </div>

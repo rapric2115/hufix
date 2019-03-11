@@ -65,6 +65,7 @@ mat-radio-button:checked + label {
   font-size: 1.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
+  margin-bottom: 2rem;
 }
 
 .btn-process_checkout {
@@ -113,6 +114,21 @@ strong {
 .mat-radio-container {
   visibility: hidden !important;
 }
+.detailsimg {
+  width: 10rem;
+}
+small {
+  font-size: .8rem;
+}
+.col-2 {
+ padding: 0;
+}
+.card-body-cart {
+  padding: .75rem !important;
+}
+.card-body-cart strong {
+  margin-right: 0;
+}
 
 @media (max-width: 568px) {
   .phone {
@@ -127,6 +143,9 @@ strong {
   }
   .col-md-3 {
     width: 50%;
+  }
+  .cartImg {
+    width: 5rem;
   }
 }
 
