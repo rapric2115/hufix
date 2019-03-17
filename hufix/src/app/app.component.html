@@ -1,4 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
-<app-home *ngIf="_router.url != '/details'"></app-home>
+<app-home *ngIf="!
+(_router.url === '/details' ||
+ _router.url === '/dashboard'||
+ _router.url === '/dashboard/userAccount' ||
+ _router.url === '/dashboard/trades' ||
+ _router.url === '/dashboard/referrals' ||
+ _router.url === '/dashboard/address'
+ )"></app-home>

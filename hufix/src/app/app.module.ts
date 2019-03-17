@@ -34,6 +34,11 @@ import { MatFormFieldModule,
          MatIconModule,
          MatSnackBarModule } from '@angular/material';
 import { FormDetailsMobileComponent } from './form-details-mobile/form-details-mobile.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { UserAccountComponent } from './user-account/user-account.component';
+import { TradesComponent } from './trades/trades.component';
+import { ReferralsComponent } from './referrals/referrals.component';
+import { AddressComponent } from './address/address.component';
 
 
 @NgModule({
@@ -49,7 +54,12 @@ import { FormDetailsMobileComponent } from './form-details-mobile/form-details-m
     BlogArticlesComponent,
     SubscribeBtnComponent,
     FooterComponent,
-    FormDetailsMobileComponent
+    FormDetailsMobileComponent,
+    UserDashboardComponent,
+    UserAccountComponent,
+    TradesComponent,
+    ReferralsComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,

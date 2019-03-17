@@ -1,0 +1,23 @@
+.btn-mauto {
+  margin-top: 3rem;
+}
+.btn-outline-dash {
+  background-color: var(--bg-lightGray);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-blue);
+  font-weight: bold;
+}
+.btn-outline-dash:hover {
+  background-color: var(--dark-blue);
+  color: snow;
+}
+.btn-outline-dash:active {
+  background-color: var(--dark-blue);
+  color: snow;
+}
+
+@media (max-width: 560px) {
+  .btn-group label {
+    font-size: .8rem;
+  }
+}

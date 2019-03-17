@@ -1,0 +1,11 @@
+.myAcc {
+  background-color: var(--bg-lightGray);
+}
+.btn-save {
+  border-radius: 45px;
+  background-color: var(--dark-blue);
+  padding: .7rem;
+}
+.myForm {
+  padding-bottom: 5rem;
+}

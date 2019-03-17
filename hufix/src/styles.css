@@ -6,6 +6,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
+  background-color: var(--bg-lightGray);
 }
 :root {
   --bg-color: #002d45;
@@ -14,4 +15,7 @@ html, body {
   --light-blue: #0073e4;
   --dark-blue: #002d45; /* footer */
   --darkes-blue: #001926; /* mini-footer */
+  --text-blue: #002d45;
+  --bg-lightGray: #fafafa;
+  --bg-gray: #c3c3c3;
 }

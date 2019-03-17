@@ -1,0 +1,32 @@
+<div class="container-fluid bg-dash">
+  <!-- buttons groups -->
+  <div class="btn-mauto text-center">
+    <div class="btn-group btn-group-med" role="group" aria-label="Button Group Demonstration">
+      <button class="btn btn-outline-dash" type="button" role="button"
+      name="btn_default_med_0" value="btn_default_med_0"
+      [routerLink]="['userAccount']"><span>Account</span>
+      </button>
+      <button class="btn btn-outline-dash" type="button"
+      role="button" name="btn_primary_med_1" value="btn_primary_med_1"
+      [routerLink]="['trades']"><span>Trades</span>
+      </button>
+      <button class="btn btn-outline-dash" type="button" role="button"
+      name="btn_success_med_2" value="btn_success_med_2"
+      [routerLink]="['referrals']">
+      <span>referrals </span>
+      </button>
+    <!--  <button class="btn btn-info" type="button" role="button" name="btn_info_med_3" value="btn_info_med_3"><span>default</span>
+      </button>
+      <button class="btn btn-warning" type="button" role="button" name="btn_warning_med_4" value="btn_warning_med_4"><span>default</span>
+      </button> -->
+      <button class="btn btn-outline-dash" type="button" role="button"
+      name="btn_danger_med_5" value="btn_danger_med_5" [routerLink]="['address']" routerLinkActive="router-link-active" >
+      <span>Address</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

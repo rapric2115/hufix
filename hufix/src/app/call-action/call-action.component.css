@@ -8,10 +8,13 @@
   background-color: var(--bg-orange);
   color: snow;
   margin-top: 2rem;
+  font-weight: 900;
 }
 .btn-blue {
-  background-color: var(--bg-color);
+  background-color: #0073e4;
   color: snow;
+  padding: .5rem 2rem;
+  font-weight: 900;
 }
 .pad-5 {
   padding: 5%;
@@ -26,4 +29,7 @@
 }
 .pad {
   padding: 4%;
+}
+.pad h3 {
+  font-weight: bolder;
 }

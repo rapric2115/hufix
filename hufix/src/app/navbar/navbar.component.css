@@ -12,7 +12,14 @@
 .nav-item {
   display: flex;
 }
-
+.modalLogin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  overflow: visible;
+}
 @media (min-width: 576px) {
   .navbar-brand {
     padding-left: 5rem;

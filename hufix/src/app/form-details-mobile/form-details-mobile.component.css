@@ -1,3 +1,13 @@
+.card {
+  border: none;
+  background-color: var(--bg-lightGray);
+}
+.card-header {
+  background-color: var(--bg-lightGray);
+}
+.container-fluid {
+  background-color: var(--bg-lightGray);
+}
 .matButton {
   margin-right: .5rem;
 }

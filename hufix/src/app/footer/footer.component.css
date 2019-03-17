@@ -38,6 +38,9 @@
 }
 
 @media (max-width: 568px) {
+  .social {
+    padding-left: 0 !important;
+  }
   .social li {
     padding: 5%;
     font-size: 1rem;

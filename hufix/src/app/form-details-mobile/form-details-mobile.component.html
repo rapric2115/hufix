@@ -1,6 +1,7 @@
 <!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>-->
+<div class="container-fluid">
 <div class="accordion" id="accordionStepper">
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
@@ -421,94 +422,6 @@
       </form>
 
   </mat-step>
-
-  <!--
-
-  <mat-step [stepControl]="fourFormGroup">
-    <form [formGroup]="fourFormGroup">
-      <button mat-button matStepperPrevious class="btn btn-outline-danger">Back</button>
-      <button mat-button matStepperNext class="btn btn-outline-info">Next</button>
-
-  <mat-step [stepControl]="sevenFormGroup">
-      <ng-template matStepLabel></ng-template>
-      <form>
-          <div class="card">
-              <div class="card-body row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="{{phoneModels}}" alt="iphonex" class="img-fluid phone">
-                        </div>
-                        <div class="col-4">
-                          <strong>Details</strong>
-                          <ul>
-                            <li>Carrier: {{ favoriteCarrier }}</li>
-                            <li>Condition: {{ mobileCondition }}</li>
-                            <li>Storage: {{ mobileStorage }}</li>
-                            <li>Device IMAI: {{ deviceBadImai }}</li>
-                          </ul>
-                          <hr>
-                        </div>
-                        <div class="col-4">
-                            <strong>Price</strong>
-                            <ul>
-                              <li>$425</li>
-                            </ul>
-                            <div class="quantity">
-                                <mat-form-field>
-                                    <mat-select placeholder="Quantity">
-                                      <mat-option *ngFor="let q of quantityA" [value]="q.value">
-                                        {{q.viewValue}}
-                                      </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="https://www.squashthebeef.com/cmsAdmin/uploads/iphonex.png" alt="iphonex" class="img-fluid phone">
-                        </div>
-                        <div class="col-4">
-                          <strong>Iphone X</strong>
-                          <ul>
-                            <li>Carrier: AT&T</li>
-                            <li>Condition: Good</li>
-                            <li>Storage: 128gb</li>
-                          </ul>
-                          <hr>
-                        </div>
-                        <div class="col-4">
-                            <strong>Price</strong>
-                            <ul>
-                              <li>$425</li>
-                            </ul>
-                            <div class="quantity">
-                                <mat-form-field>
-                                    <mat-select placeholder="Quantity">
-                                      <mat-option *ngFor="let q of quantityA" [value]="q.value">
-                                        {{q.viewValue}}
-                                      </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                      </div>
-                </div>
-              </div>
-          </div>
-      </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious class="btn btn-outline-danger">Back</button>
-      <button mat-button (click)="stepper.reset()" class="btn btn-outline-secundary">Reset</button>
-    </div>
-  </mat-step>
--->
 </mat-horizontal-stepper>
+</div>
 </div>

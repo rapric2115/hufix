@@ -1,6 +1,10 @@
 body, html {
   background-color: beige;
 }
+h3, h4 {
+  font-weight: 900;
+  color: var(--text-blue);
+}
 header {
   z-index: 0;
 }
@@ -11,7 +15,7 @@ header {
 .bgimg {
   background-image: url(../../assets/img/background.png);
   /* background-color: blue; */
-  height: 65vh;
+  height: 40vh;
   width: 100%;
   z-index: -10;
   background-position: center;
@@ -57,6 +61,12 @@ header {
 .htos-section {
   padding-top: 1.5rem;
 }
+.htos-section h4 {
+  font-weight: 900;
+}
+.bg-lightGray {
+  background-color: var(--bg-lightGray);
+}
 .flex-container {
   display: flex;
   flex-flow: row wrap;
@@ -70,7 +80,6 @@ header {
   line-height: 75px;
   font-size: 30px;
   color: var(--bg-color);
-  border: 1px solid #cccccc;
   border-radius: 7px;
   padding: .25rem;
 }
@@ -80,6 +89,10 @@ header {
 }
 .cont-img img{
   width: 2rem;
+  padding: 1.4rem 0;
+}
+.cont-img h4 {
+  font-size: 1rem !important;
 }
 /* Tablet android
 .flex-container > div:nth-child(5) img {
@@ -138,7 +151,7 @@ header {
     flex: 1 25%;
   }
   h4 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bolder;
   }
   /* Laptop windows */

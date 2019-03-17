@@ -5,7 +5,7 @@
 .bgimg {
   background-image: url(../../../assets/img/background.png);
   /* background-color: blue; */
-  height: 65vh;
+  height: 40vh;
   width: 100%;
   z-index: -10;
   background-position: center;
@@ -13,7 +13,7 @@
   background-size: cover;
 }
 h3 {
-  padding-top: 20%;
+  padding-top: 10%;
   color: snow;
   font-size: 1.3rem;
   width: 100%;
@@ -24,7 +24,6 @@ h3::before {
 }
 p {
   color: snow;
-  padding-top: 5%;
   width: 100%;
 }
 
@@ -69,7 +68,7 @@ p {
   color: snow;
 }
 .cat-seccion {
-  padding-top: 35%;
+  padding-top: 27%;
 }
 /*.input-group  {
   flex-wrap: nowrap;
@@ -91,13 +90,24 @@ select:not(:first-child){
   /* margin-left: 0; */
 }
 .input-group {
-  position: relative;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
     /* width: 70%; */
     justify-content: center;
-    margin-top: 10%;
+    /* margin-top: -15%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%,-50%);
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap; /* Safari 6.1 +*/
 }
 
 

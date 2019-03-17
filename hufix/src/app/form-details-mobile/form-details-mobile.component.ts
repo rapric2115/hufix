@@ -1,4 +1,3 @@
-import {FocusMonitor} from '@angular/cdk/a11y';
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Validators, FormControl} from '@angular/forms';
@@ -146,11 +145,6 @@ export class FormDetailsMobileComponent implements OnInit {
   ];
   firstName(firstName: any): import('@angular/forms').AbstractControl {
     throw new Error('Method not implemented.');
-  }
-
-  getValue($event) {
-    let val = document.getElementById('phoneClient').nodeValue;
-    console.log(val);
   }
 
   openSnackBar(message: string, action: string) {
