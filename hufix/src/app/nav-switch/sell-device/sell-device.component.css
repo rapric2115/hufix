@@ -21,10 +21,14 @@ h3 {
 h3::before {
   content: 'Sell';
   color: var(--orange);
+  font-weight: bolder;
 }
 p {
   color: snow;
   width: 100%;
+}
+.custom-select {
+  max-width: 45%;
 }
 
 /*.group {
@@ -54,7 +58,7 @@ p {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-.custom-btn {
+.custom-btn span {
   margin-left: -.8rem;
   position: relative;
   border-radius: 50%;
@@ -64,11 +68,21 @@ p {
   color: snow !important;
   border: none;
 }
+.input-group-append span {
+  border-radius: 50% !important;
+  position: relative;
+  left: -50%;
+  z-index: 999;
+  background-color: var(--orange);
+  color: white;
+}
 .fa-angle-right {
   color: snow;
+  padding: .25rem .20rem;
+  font-size: 1.1rem;
 }
 .cat-seccion {
-  padding-top: 27%;
+  padding-top: 25%;
 }
 /*.input-group  {
   flex-wrap: nowrap;
@@ -98,7 +112,7 @@ select:not(:first-child){
     justify-content: center;
     /* margin-top: -15%; */
     top: 50%;
-    left: 50%;
+    left: 53%;
     transform: translate(-50% , -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%,-50%);

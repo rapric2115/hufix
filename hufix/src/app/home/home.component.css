@@ -1,9 +1,14 @@
+
 body, html {
   background-color: beige;
 }
-h3, h4 {
-  font-weight: 900;
+h3 {
+  font-family: var(--font-cat);
+}
+h3, h4, h5 {
+  font-weight: bold;
   color: var(--text-blue);
+  /*text-shadow: 1px .5px var(--text-blue); */
 }
 header {
   z-index: 0;

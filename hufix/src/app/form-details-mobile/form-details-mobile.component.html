@@ -27,7 +27,7 @@
                         <label for="{{ p.models }}" class="text-center">
                             <img src="{{ p.imgUrl }}" alt="iphonex" class="img-fluid phone" id="phoneClient">
                             <span>{{ p.model }}</span>
-                          </label>
+                        </label>
                     </mat-radio-button>
                 </mat-radio-group>
               </div>
@@ -47,7 +47,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionStepper">
          <div class="card-body">
             <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteCarrier" formControlName="mobileCarrier">
-                <mat-radio-button class="example-radio-button" *ngFor="let c of carriers" [value]="c.name">
+                <mat-radio-button class="example-radio-button  btn-radio" *ngFor="let c of carriers" [value]="c.name">
                   {{c.name}} <img src="{{c.url}}" alt="{{c.name}}" class="img-fluid carrier-img">
                 </mat-radio-button>
             </mat-radio-group>
@@ -67,7 +67,7 @@
           <div class="card-body">
               <form [formGroup]="thirdFormGroup">
                   <mat-radio-group class="example-radio-group" [(ngModel)]="mobileStorage" formControlName="storage">
-                      <mat-radio-button class="example-radio-button" *ngFor="let s of storage" [value]="s">
+                      <mat-radio-button class="example-radio-button btn-radio" *ngFor="let s of storage" [value]="s">
                         {{s}}
                       </mat-radio-button>
                     </mat-radio-group>
@@ -112,18 +112,40 @@
         </div>
         <div id="collapseCondition" class="collapse show" aria-labelledby="headingCondition"
          data-parent="#accordionStepper">
-            <div class="card-body">
-                <mat-radio-group class="example-radio-group" [(ngModel)]="deviceCondition" formControlName="condition">
-                    <mat-radio-button class="example-radio-button" *ngFor="let con of conditions" [value]="con.condition">
+            <div class="card-body none-pad">
+                <mat-radio-group class="example-radio-group" [(ngModel)]="deviceCondition"
+                 formControlName="condition">
+                    <mat-radio-button class="example-radio-button btn-radio"
+                    *ngFor="let con of conditions; let i = index"
+                    [value]="con.condition">
                       <div class="paragraph">
-                      <strong>{{con.condition}}</strong> <br> <p class="small">{{con.desc}}</p>
+                      <strong>{{con.condition}}</strong> <br> <p class="small w-space-pw">{{con.desc}}</p>
+                      </div>
+                      <!-- testing -->
+                      <div *ngIf="deviceCondition === 'Excellent' && con.show === !show" class="w-space-pw">
+                          <label id="example-radio-group-label"
+                          >Does the screen scratches or cracks?</label>
+                          <mat-radio-group
+                            aria-labelledby="example-radio-group-label"
+                            class="example-radio-group"
+                            [(ngModel)]="screenSctch" formControlName="screenSc">
+                            <mat-radio-button class="example-radio-button" *ngFor="let scsc of screenScratch"
+                            [value]="scsc">
+                              {{scsc}}
+                            </mat-radio-button>
+                          </mat-radio-group>
                       </div>
                     </mat-radio-button>
-                  </mat-radio-group>
+                </mat-radio-group>
+                <!-- Second Radio Buttons of Conditions -->
+
+                <!-- Second Radio Buttons of Conditions ends here -->
             </div>
         </div>
+
       </div><!-- Condition device cards ends -->
       </form>
+
       <form [formGroup]="fiveFormGroup">
       <div class="card">
         <div class="card-header" id="headingPower">
@@ -138,7 +160,7 @@
         data-parent="#accordionStepper">
           <div class="card-body">
               <mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff" formControlName="powerOnOff">
-                  <mat-radio-button class="example-radio-button" *ngFor="let p of powerOnOff" [value]="p">
+                  <mat-radio-button class="example-radio-button btn-radio" *ngFor="let p of powerOnOff" [value]="p">
                     {{p}}
                   </mat-radio-button>
               </mat-radio-group>
@@ -160,7 +182,7 @@
         data-parent="#accordionStepper">
         <div class="card-body">
             <mat-radio-group class="example-radio-group" [(ngModel)]="deviceBadImai" formControlName="imai">
-                <mat-radio-button class="example-radio-button" *ngFor="let i of badImai" [value]="i">
+                <mat-radio-button class="example-radio-button btn-radio" *ngFor="let i of badImai" [value]="i">
                       {{i}}
                 </mat-radio-button>
               </mat-radio-group>
@@ -218,7 +240,7 @@
       </div>
   </mat-step> <!-- Step 2 ends -->
 
-  <mat-step [stepControl]="sevenFormGroup">
+  <mat-step [stepControl]="sevenFormGroup" class="cartSelling">
       <ng-template matStepLabel></ng-template>
       <h5 class="text-center"> Your Selling Cart</h5>
       <hr>
@@ -299,12 +321,12 @@
                   </ul>
                 </div>
                 <div class="col-7">
-                  <button class="btn btn-sm btn-process_checkout" (click)="show = !show"> Process Checkout</button>
+                  <button class="btn btn-sm btn-process_checkout" (click)="processCheck = !processCheck"> Process Checkout</button>
                 </div>
            </div>
           </div>
       </form>
-      <form [formGroup]="eightFormGroup" *ngIf="show">
+      <form [formGroup]="eightFormGroup" *ngIf="processCheck">
         <div class="card">
           <div class="card-header" id="headingBilling">
             <h2 class="mb-0">
@@ -401,7 +423,7 @@
           data-parent="#accordionStepper">
           <div class="card-body">
               <mat-radio-group class="example-radio-group" [(ngModel)]="methodPayment" formControlName="payMethod">
-                  <mat-radio-button class="example-radio-button" *ngFor="let pm of payments" [value]="pm">
+                  <mat-radio-button class="example-radio-button btn-radio" *ngFor="let pm of payments" [value]="pm">
                     {{pm}}
                   </mat-radio-button>
               </mat-radio-group>

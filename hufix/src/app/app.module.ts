@@ -32,7 +32,8 @@ import { MatFormFieldModule,
          MatSelectModule,
          MatCheckboxModule,
          MatIconModule,
-         MatSnackBarModule } from '@angular/material';
+         MatSnackBarModule,
+         MatDialogModule } from '@angular/material';
 import { FormDetailsMobileComponent } from './form-details-mobile/form-details-mobile.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserAccountComponent } from './user-account/user-account.component';
@@ -81,7 +82,8 @@ import { AddressComponent } from './address/address.component';
     MatSelectModule,
     MatCheckboxModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   exports: [
     BrowserAnimationsModule,

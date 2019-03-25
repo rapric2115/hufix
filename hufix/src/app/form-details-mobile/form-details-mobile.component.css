@@ -4,9 +4,13 @@
 }
 .card-header {
   background-color: var(--bg-lightGray);
+  padding: 0.5rem 0.25rem;
+  border-bottom: none;
 }
 .container-fluid {
   background-color: var(--bg-lightGray);
+  padding-left: 0;
+  padding-right: 0;
 }
 .matButton {
   margin-right: .5rem;
@@ -34,11 +38,36 @@ label:hover {
     display: inline-flex;
     flex-direction: row !important;
     flex-wrap: wrap;
+    padding-bottom: 3rem;
 }
 
+mat-radio-button span {
+  font-weight: bold;
+  color: var(--text-blue) !important;
+}
+mat-radio-button {
+  background-color: #ffffff;
+}
 mat-radio-button:checked + label {
   filter: grayscale(0);
   display: flex;
+}
+mat-horizontal-stepper {
+  background-color: var(--bg-lightGray);
+}
+mat-radio-container {
+  display: none !important;
+}
+.btn-link {
+  border-top: 1px solid var(--bg-gray);
+  width: 100%;
+  padding-top: 1.5rem;
+}
+.w-space-pw {
+  white-space: pre-wrap;
+}
+.none-pad {
+  padding: 0;
 }
 
 /* Radio buttons*/
@@ -49,6 +78,17 @@ mat-radio-button:checked + label {
 
 .example-radio-button {
   margin: 5px;
+}
+
+.btn-radio {
+  width: 100%;
+  padding: .7rem;
+  border: 1px solid var(--bg-gray);
+  padding-bottom: .2rem;
+  margin-bottom: -6px !important;
+}
+#btn-radio-21:active {
+  background-color: var(--orange) !important;
 }
 
 .example-selected-value {
@@ -158,6 +198,10 @@ small {
   color: snow;
   padding: 0.85rem;
   font-size: 1.5rem;
+}
+.cartSelling {
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 @media (max-width: 568px) {
