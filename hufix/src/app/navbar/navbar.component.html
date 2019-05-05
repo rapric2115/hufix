@@ -18,18 +18,31 @@
                     <a class="nav-link" href="#">Track Order</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                      <a class="nav-link" [routerLink]="['/test']" routerLinkActive="router-link-active" >testForm</a>
+                    </li>
+                  <li class="nav-item md-dis-non">
+                    <a class="nav-link" [routerLink]="['/enterprise']" routerLinkActive="router-link-active"  >Enterprise</a>
+                  </li>
+                  <li class="nav-item md-dis-non">
+                    <a class="nav-link" [routerLink]="['/FAQs']" routerLinkActive="router-link-active" >FAQs</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" *ngIf="auth.afAuth.authState | async as user; else showLogin">
+                    <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
+                  </li>
+                  <li class="nav-item pr-1">
+                    <a class="nav-link" *ngIf="user$ | async as user; else showLogin">
                       Hello {{ user.displayName }}
                     </a>
                     <button *ngIf="auth.afAuth.authState | async as user"
                     class="btn btn-outline-secondary btn-sm"
                     (click)="auth.logout()">Logout</button>
                     <ng-template #showLogin>
-                        <button class="btn btn-outline-danger btn-sm"
-                        data-toggle="modal" data-target="#exampleModal">Login Account</button>
+                        <button class="btn btn-outline-danger btn-sm mr-2"
+                        data-toggle="modal" data-target="#loginModal">Login</button>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-info btn-sm"
+                            data-toggle="modal" data-target="#createModal">Create Account</button>
+                        </li>
                     </ng-template>
                   </li>
                 </ul>
@@ -37,7 +50,7 @@
         </nav>
         <app-nav-switch></app-nav-switch>
 
-        <div class="modal fade modalLogin" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade modalLogin bg-login" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -47,25 +60,30 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form (ngSubmit)="signIn(s)" #s="ngForm">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          <label for="Email">Email address</label>
+                          <input type="email" class="form-control"
+                          id="Email" aria-describedby="emailHelp"
+                          placeholder="Enter email" name="emails" ngModel>
+                          <ng-template>
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          </ng-template>
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                          <label for="Password">Password</label>
+                          <input type="password" class="form-control"
+                          id="Password" placeholder="Password"
+                          name="passwords" ngModel>
                         </div>
                         <div class="form-group form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <input type="checkbox" class="form-check-input" id="Check1">
                           <label class="form-check-label" for="exampleCheck1">Check me out</label>
                           <p>Forgot your Password</p>
                         </div>
-                        <button type="submit" class="btn btn-outline-primary pr-2" [routerLink]="['dashboard']"
-                        routerLinkActive="router-link-active">Login</button>
                         <!-- (click)="auth.login()" -->
-                        <button type="#" class="btn btn-outline-info">Create Account</button>
+                        <button class="btn btn-outline-danger" (click)="auth.login()">Login with Google</button>
+                        <button type="submit" class="btn btn-outline-primary pl-3">Login</button>
                       </form>
                 </div>
                 <div class="modal-footer">
@@ -74,3 +92,52 @@
               </div>
             </div>
           </div>
+
+          <!-- Create Account Modal-->
+          <div class="modal fade modalLogin bg-create" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Create Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <form (ngSubmit)="onSignup(f)" #f="ngForm">
+                          <div class="form-group">
+                            <label for="InputEmail">Email address</label>
+                            <input type="email" class="form-control"
+                            id="InputEmail" aria-describedby="emailHelp"
+                            placeholder="Enter email" name="email" ngModel>
+                            <ng-template>
+                                <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </ng-template>
+                          </div>
+                          <div class="form-group">
+                            <label for="InputPassword">Password</label>
+                            <input type="password" class="form-control"
+                            id="InputPassword" placeholder="Password"
+                            name="password" ngModel>
+                          </div>
+                          <ng-template *ngIf="!auth.err">
+                            <small class="form-text text-muted">
+                                  {{ auth.err.message }}
+                            </small>
+                          </ng-template>
+                          <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="Check">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <p>Forgot your Password</p>
+                          </div>
+                          <button type="submit" class="btn btn-outline-primary pr-2">Login</button>
+                          <!-- (click)="auth.login()" -->
+                          <button type="#" class="btn btn-outline-info">Create Account</button>
+                        </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>

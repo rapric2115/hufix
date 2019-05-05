@@ -1,0 +1,405 @@
+<div class="container-fluid">
+  <form [formGroup]="firstFormGroup">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <div class="accordion" id="phoneSelectionForm">
+            <div class="card">
+              <div class="card-header" id="choosePhone">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button"
+                   data-toggle="collapse" data-target="#collapseOne"
+                   aria-expanded="true" aria-controls="collapseOne">
+                   <h5>1.1 Choose your Phone</h5>
+                  </button>
+                </h2>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="choosePhone"
+              data-parent="#phoneSelectionForm">
+                <div class="card-body">
+                    <mat-radio-group class="example-radio-group" formControlName="firstCtrl"
+                    [(ngModel)]="phoneModels" data-toggle="collapse"
+                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" name="phoneModels">
+                        <mat-radio-button class="example-radio-button" *ngFor="let p of carriers" [value]="p.imgUrl"
+                        (change)="mPhone(p.model)" (click)="setOpen()">
+                            <label for="{{ p.models }}" class="text-center">
+                                <img src="{{ p.imgUrl }}" alt="iphonex" class="img-fluid phone" id="phoneClient">
+                                <span>{{ p.model }}</span>
+                            </label>
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="selectCarrier">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                  data-target="#carrier" aria-expanded="false" aria-controls="collapseTwo">
+                      <h5>1.2 Select your Carrier</h5>
+                  </button>
+                </h2>
+              </div>
+              <div id="carrier" class="collapse" aria-labelledby="selectCarrier" data-parent="#phoneSelectionForm">
+                <div class="card-body">
+                    <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteCarrier" formControlName="mobileCarrier"
+                    name="favoriteCarrier">
+                       <mat-radio-button class="example-radio-button  btn-radio" *ngFor="let c of carriers" [value]="c.name"
+                       data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                       (click)="setOp()">
+                         <img src="{{c.url}}" alt="{{c.name}}" class="img-fluid carrier-img">
+                       </mat-radio-button>
+                   </mat-radio-group>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="storageSize">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <h5>1.3 Choose a Storage Size</h5>
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="storageSize" data-parent="#phoneSelectionForm">
+                <div class="card-body">
+                  <mat-radio-group class="example-radio-group" [(ngModel)]="mobileStorage" formControlName="storage">
+                          <mat-radio-button class="example-radio-button btn-radio" *ngFor="let s of storage" [value]="s"
+                          (change)="mStorage(s)">
+                            {{s}}
+                          </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+      </mat-step><!-- First Step -->
+      <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <h5 class="text-center"> Help us give you an accurate price</h5>
+        <div class="accordion" id="phoneSelectionFormTwo">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse"
+                   data-target="#accuratePrice" aria-expanded="true" aria-controls="accuratePrice">
+                   <h5>2.1 What is the condition fo the device</h5>
+                  </button>
+                </h2>
+              </div>
+
+              <div id="accuratePrice" class="collapse show" aria-labelledby="headingOne" data-parent="#phoneSelectionFormTwo">
+                <div class="card-body">
+                    <div class="card-body none-pad">
+                        <mat-radio-group class="example-radio-group" [(ngModel)]="deviceCondition"
+                         formControlName="condition" name="condition">
+                            <mat-radio-button class="example-radio-button btn-radio"
+                            *ngFor="let con of conditions"
+                            [value]="con.condition" (change)="mCondition(con.condition)">
+                              <div class="paragraph">
+                              <strong>{{con.condition}}</strong> <br> <p class="small w-space-pw">{{con.desc}}</p>
+                              </div>
+                              <!-- testing -->
+                              <div *ngIf="deviceCondition === con.condition && con.show === !show" class="w-space-pw">
+                                  <label id="example-radio-group-label">
+                                    Does the screen scratches or cracks?
+                                  </label>
+                                      <div class="form-check" *ngFor="let scsc of screenScratch">
+                                          <input class="form-check-input" type="radio" name="scScratch"
+                                           id="exampleRadios1" value="{{scsc}}" checked (click)="ss()">
+                                          <label class="form-check-label" for="exampleRadios1">
+                                            {{scsc}}
+                                          </label>
+                                      </div>
+                              </div>
+                            </mat-radio-button>
+                        </mat-radio-group><!-- Second Radio Buttons of Conditions -->
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                   data-target="#devicePower" aria-expanded="false" aria-controls="devicePower">
+                      <h5>2.2 Does the Device power on?</h5>
+                  </button>
+                </h2>
+              </div>
+              <div id="devicePower" class="collapse" aria-labelledby="headingTwo" data-parent="#phoneSelectionFormTwo">
+                <div class="card-body">
+                    <mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff"
+                    formControlName="powerOnOff" (click)="powerOO()" name="devicePowerOnOff">
+                        <mat-radio-button class="example-radio-button btn-radio"
+                        *ngFor="let p of powerOnOff" [value]="p" (change)="moPower(p)">
+                          {{p}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                  data-target="#phoneImai" aria-expanded="false" aria-controls="phoneImai">
+                      <h5>2.3 Does Your Phone have a Bad IMAI?</h5>
+                  </button>
+                </h2>
+              </div>
+              <div id="phoneImai" class="collapse" aria-labelledby="headingThree" data-parent="#phoneSelectionFormTwo">
+                <div class="card-body">
+                    <mat-radio-group class="example-radio-group" [(ngModel)]="deviceBadImai" name="deviceBadImai" formControlName="imai" (click)="ima()">
+                        <mat-radio-button class="example-radio-button btn-radio" *ngFor="let i of badImai"
+                         [value]="i" (change)="moImai(i)" (click)="save(im.value)">
+                              {{i}}
+                        </mat-radio-button>
+                      </mat-radio-group>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingCheckout">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#collapseCheckout" aria-expanded="true" aria-controls="collapseCheckout"
+                    (click)="check = !check">
+                      <h5>2.4 Checkout</h5>
+                    </button>
+                  </h2>
+                </div>
+
+                <div id="collapseCheckout" class="collapse" aria-labelledby="headingCheckout" data-parent="#phoneSelectionFormTwo">
+                  <div class="card-body card-body-checkout">
+                    <div class="checkout" *ngIf="phoneModels">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="text-center">
+                              <img src="{{ phoneModels }}" alt="mobile Phone" class="img-fluid detailsimg">
+                              <p>
+                                  <span>
+                                    <strong>iPhone X</strong>
+                                  </span>
+                                  {{ favoriteCarrier }}, {{ mobileStorage }}
+                                </p>
+                          </div>
+                        </div>
+                      </div>
+                        <p class="text-center">
+                            <strong class="text-dev_price">{{mobilePrice + moStorage - moCondition - mPower - mImai | currency}}</strong>
+                        </p>
+                          <div class="text-center">
+                            <button mat-button matStepperNext class="btn btn-checkout">Checkout</button>
+                          </div>
+                          <hr>
+                          <p>
+                            *Payment will be sent within 24 business hours after the device is received,
+                            if condition is as described.
+                          </p>
+                          <p>
+                            **This Quotes is Valid For 20 Days and Will Expire On 03/08/2019.
+                          </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <h5 class="text-center"> Your Selling Cart</h5>
+        <hr>
+        <p> we are almost done, just add the device you want and process. </p>
+        <div class="card">
+            <div class="card-body row card-body-cart">
+              <div class="col-md-6">
+                  <div class="row">
+                      <div class="col-4">
+                          <img src="{{phoneModels}}" alt="iphonex" class="img-fluid phone cartImg">
+                      </div>
+                      <div class="col-6">
+                        <strong>Details</strong>
+                        <ul>
+                          <li>{{ favoriteCarrier }}</li>
+                          <li>{{ deviceCondition }}</li>
+                          <li>{{ mobileStorage }}</li>
+                          <li>{{ deviceBadImai }}</li>
+                        </ul>
+                        <hr>
+                      </div>
+                      <div class="col-2">
+                          <strong>Price</strong>
+                          <ul>
+                            <li>{{mobilePrice + moStorage - moCondition - mPower - mImai | currency}}</li>
+                          </ul>
+                          <div class="quantity">
+                              <mat-form-field>
+                                  <mat-select placeholder="Quantity">
+                                    <mat-option *ngFor="let q of quantityA" [value]="q.value"
+                                    (change)="quan($event.target.value)">
+                                      {{q.viewValue}}
+                                    </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                    </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-4 pl-price">
+                <ul>
+                  <li>Total Price</li>
+                  <li><strong>{{mobilePrice + moStorage - moCondition - mPower - mImai | currency}}</strong></li>
+                </ul>
+              </div>
+              <div class="col-8">
+                <button class="btn btn-sm btn-process_checkout" (click)="processCheck = !processCheck"> Process Checkout</button>
+              </div>
+         </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingBilling">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseBilling" aria-expanded="false" aria-controls="collapseBilling">
+                <h5>3.2 Billing Details</h5>
+              </button>
+              </h2>
+            </div>
+            <div class="collapse" id="collapseBilling" aria-labelledby="headingBilling" data-parent="#accordionStepper">
+              <div class="card-body">
+              <form [formGroup]="personalData" #pd="ngForm">
+                  <div class="form-group">
+                      <mat-form-field>
+                          <input matInput placeholder="Firts Name" formControlName="dataFirstName"
+                          [(ngModel)]="dataName" name="dataName">
+                      </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                      <mat-form-field>
+                          <input matInput placeholder="Last Name" formControlName="dataLastName"
+                          [(ngModel)]="dataLastName" name="dataLastName">
+                      </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                      <mat-form-field>
+                          <input matInput placeholder="Company Name (optional)" >
+                      </mat-form-field>
+                  </div>
+                  <div class="form-group">
+                      <mat-form-field>
+                          <input matInput placeholder="Street address" formControlName="dataAddress"
+                          [(ngModel)]="dataAddress" name="dataAddress">
+                      </mat-form-field>
+                      <div class="form-group">
+                          <mat-form-field>
+                              <input matInput placeholder="Apartment, suit, unit, etc. (optional)">
+                          </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                          <mat-form-field>
+                              <input matInput placeholder="Town/ City" formControlName="dataCity"
+                              [(ngModel)]="dataCity" name="dataCity">
+                          </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                          <mat-form-field>
+                              <input matInput placeholder="State" formControlName="dataState"
+                              [(ngModel)]="dataState" name="dataState">
+                          </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                          <mat-form-field>
+                              <input matInput placeholder="Zip" formControlName="dataZip"
+                              [(ngModel)]="dataZip" name="dataZip">
+                          </mat-form-field>
+                      </div>
+                      <!-- Phone Number here -->
+                      <div class="form-group">
+                          <div class="example-container">
+                              <mat-form-field>
+                                <input matInput placeholder="Enter your email" [formControl]="email" required>
+                                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                              </mat-form-field>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="example-container">
+                              <mat-form-field>
+                                <input matInput placeholder="Paypal Email (if Different from contact email)(optional)"
+                                  [formControl]="paypalEmail" required>
+                                <mat-error *ngIf="email.invalid">{{getErrorMesPaypal()}}</mat-error>
+                              </mat-form-field>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                          <mat-form-field>
+                              <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
+                            </mat-form-field>
+                      </div>
+                      <div class="form-group">
+                          <mat-form-field>
+                              <textarea matInput placeholder="Order Notes (optional)"></textarea>
+                          </mat-form-field>
+                      </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div><!-- Billing Details Ends -->
+        <form #pm="ngForm" [formGroup]="paymentMethod">
+          <div class="card">
+            <div class="card-header" id="headingBillDetails">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseBillDestails" aria-expanded="false" aria-controls="collapseBillDestails">
+                <h5>3.3 Payment Method</h5>
+              </button>
+              </h2>
+            </div>
+            <div class="collapse" id="collapseBillDestails" aria-labelledby="headingBillDestails"
+            data-parent="#accordionStepper">
+            <div class="card-body">
+                <mat-radio-group class="example-radio-group" [(ngModel)]="payMethod" name="payMethod"
+                formControlName="payMethod">
+                    <mat-radio-button class="example-radio-button btn-radio" *ngFor="let pm of payment" [value]="pm">
+                      {{pm}}
+                    </mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <hr>
+                <p> Your Personal data will be used to process your order, support your experience throughout this website, and
+                  for other purposes described in our privacy policy.
+                </p>
+                <div class="checkbox w-space-pw">
+                    <mat-checkbox  formControlName="termsCond" [(ngModel)]="termsCond"
+                    name="termsCond">I have read and agree to the website
+                      <a [routerLink]="['/termCond']" routerLinkActive="router-link-active">terms and conditions</a>
+                    </mat-checkbox>
+                </div>
+                <button class="btn btn-order" type="submit" mat-button matStepperNext
+                (click)="success()" click="supdate(pm.value)" click="save(pd.value)">Place Order</button>
+            </div>
+          </div>
+          </div><!-- Cards ends Destails Bills-->
+        </form>
+      </mat-step>
+      <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          You are now done.
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>

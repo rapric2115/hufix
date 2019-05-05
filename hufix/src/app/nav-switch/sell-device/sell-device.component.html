@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <header class="bgimg display-container">
     <h3 class="text-center">
-       your device for a great price
+      <span>Sell</span> your device for a great price
     </h3>
     <p class="text-center">
       Choose the product you'd like to sell
@@ -10,17 +10,17 @@
           <div class="group">
           <div class="input-group">
               <select [(ngModel)]="mainBrands" class="l-border custom-select">
-                  <option disabled [ngValue]="null">Brands</option>
+                  <option disabled [ngValue]="null" selected>Brands</option>
                   <option [ngValue]="brand" *ngFor="let brand of Brands">{{brand.name}}</option>
               </select>
               <select [(ngModel)]="Models" class="custom-select">
-                    <option disabled [ngValue]="null">Models</option>
+                    <option disabled [ngValue]="null" selected>Models</option>
                     <option [ngValue]="model" *ngFor="let model of filterById(mainBrands.id)">{{ model.title }}</option>
               </select>
               <div class="input-group-append">
                 <span class="input-group-text"
                 id="validationTooltipUsernamePrepend" [routerLink]="['/details']" routerLinkActive="router-link-active" >
-                <i class="fas fa-angle-right"></i>
+                <i class="fas fa-search"></i>
               </span>
               </div>
          </div>

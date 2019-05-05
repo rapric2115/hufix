@@ -1,3 +1,6 @@
+import { TestingFormComponent } from './testing-form/testing-form.component';
+import { ContactComponent } from './contact/contact.component';
+import { FAQComponent } from './faq/faq.component';
 import { AddressComponent } from './address/address.component';
 import { UserAccountComponent } from './user-account/user-account.component';
 import { FormDetailsMobileComponent } from './form-details-mobile/form-details-mobile.component';
@@ -9,6 +12,7 @@ import { TrackDeviceComponent } from './nav-switch/track-device/track-device.com
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { TradesComponent } from './trades/trades.component';
 import { ReferralsComponent } from './referrals/referrals.component';
+import { EnterpriseComponent } from './enterprise/enterprise.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/sell', pathMatch: 'full'},
@@ -16,6 +20,9 @@ const routes: Routes = [
   {path: 'sell', component: SellDeviceComponent},
   {path: 'track', component: TrackDeviceComponent},
   {path: 'details', component: FormDetailsMobileComponent},
+  {
+    path: 'test', component: TestingFormComponent
+  },
   {path: 'dashboard', component: UserDashboardComponent,
   children: [
     {path: 'userAccount', component: UserAccountComponent},
@@ -23,7 +30,9 @@ const routes: Routes = [
     {path: 'referrals', component: ReferralsComponent},
     {path: 'address', component: AddressComponent}
   ]},
-
+  {path: 'FAQs', component: FAQComponent},
+  {path: 'enterprise', component: EnterpriseComponent},
+  {path: 'contact', component: ContactComponent},
   {path: '', component: UserDashboardComponent, outlet: 'dash'}
 ];
 

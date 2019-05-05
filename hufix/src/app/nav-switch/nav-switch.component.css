@@ -17,6 +17,8 @@
 
 .btn a {
   color: snow;
+  font-weight: 600;
+  font-size: 1rem;
 }
 .btn:hover {
   border-bottom: 4px solid var(--orange);

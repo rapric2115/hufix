@@ -1,0 +1,57 @@
+
+.card-header {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+.fas {
+  position: relative;
+  left: 60%;
+}
+
+.btn-link {
+  width: 100%;
+  color: var(--bg-color);
+}
+
+.col-10 {
+  justify-content: start !important;
+  text-align: start;
+}
+.col-2 {
+  justify-content: end;
+}
+h6 {
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+.small {
+  color: var(--orange);
+}
+form {
+  color: var(--bg-color);
+}
+.btn-submit {
+  padding: .75rem 2.25rem;
+  border-radius: 40px;
+  width: 50%;
+  background-color: var(--bg-color);
+  color: snow;
+}
+.blue {
+  background-color: var(--bg-color);
+}
+.orange {
+  background-color: var(--orange);
+}
+
+
+@keyframes closeRot{
+  0%{
+      transform: rotate(90deg);
+      }
+}
+
+.anim{
+  animation: closeRot 3s 0s ease-out;
+}

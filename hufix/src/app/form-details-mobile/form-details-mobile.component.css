@@ -7,39 +7,69 @@
   padding: 0.5rem 0.25rem;
   border-bottom: none;
 }
+.card-body-checkout {
+  padding: 0 !important;
+}
 .container-fluid {
   background-color: var(--bg-lightGray);
-  padding-left: 0;
-  padding-right: 0;
 }
 .matButton {
   margin-right: .5rem;
 }
 .phone {
+  padding-top: 10%;
   margin: auto;
   display: flex;
   align-content: center;
   width: 10rem;
 }
-
 span {
   text-align: center;
 }
 
 label {
   cursor: pointer;
-  filter: grayscale(100%);
+ /* filter: grayscale(100%); */
+}
+.next {
+  background-color: #fff;
+  border: none;
+  text-align: left;
 }
 
-label:hover {
+/* label:hover {
   filter: grayscale(0);
-}
+} */
 .example-radio-group {
     display: inline-flex;
     flex-direction: row !important;
     flex-wrap: wrap;
     padding-bottom: 3rem;
+    width: 100%;
 }
+.btn-r {
+  width: 100%;
+  padding: .7rem;
+  /* border: 1px solid var(--bg-gray); */
+  padding-bottom: .2rem;
+  margin-bottom: -6px !important;
+}
+
+mat-horizontal-content-container {
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+mat-step-icon-state-number mat-step-icon mat-step-icon-selected {
+  background-color: var(--orange) !important;
+  color: #fff;
+}
+ mat-step-icon-state-done,
+ mat-step-header
+ mat-step-icon-state-edit {
+   background-color: var(--orange) !important;
+   color:#fff
+  }
 
 mat-radio-button span {
   font-weight: bold;
@@ -48,20 +78,38 @@ mat-radio-button span {
 mat-radio-button {
   background-color: #ffffff;
 }
-mat-radio-button:checked + label {
+/* mat-radio-button:checked + label {
   filter: grayscale(0);
   display: flex;
-}
+} */
+
 mat-horizontal-stepper {
   background-color: var(--bg-lightGray);
 }
 mat-radio-container {
   display: none !important;
 }
+
+.mat-form-field-flex {
+  width: 25% !important;
+}
+.mat-form-field-underline {
+  width: 54px !important;
+}
+
+.collapse {
+  font-weight: 500 !important;
+}
 .btn-link {
   border-top: 1px solid var(--bg-gray);
   width: 100%;
   padding-top: 1.5rem;
+  color: var(--text-blue);
+  font-weight: 500;
+  text-decoration: none;
+}
+h5:active {
+  font-weight: 900 !important;
 }
 .w-space-pw {
   white-space: pre-wrap;
@@ -120,7 +168,7 @@ mat-radio-container {
 
 .btn-process_checkout {
   background-color: var(--bg-color);
-  color: snow;
+  color: snow !important;
   border-radius: 30px;
   font-size: 1rem;
   padding-left: 1rem;
@@ -204,13 +252,29 @@ small {
   margin-bottom: 3rem;
 }
 
+.pl-price {
+  padding-left: 10px !important;
+}
+
+mat-horizontal-content-container {
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}
+
+.lds-spinner {
+  margin: auto;
+}
+
 @media (max-width: 568px) {
   .phone {
-    width: 6rem;
+    width: 8rem;
   }
   .col-4 {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+  .pl-price {
+    padding-left: 15px !important;
   }
   hr {
     display: none;

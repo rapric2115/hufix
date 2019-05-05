@@ -1,0 +1,45 @@
+
+.header {
+  background-color: var(--bg-color);
+}
+h1 {
+  color: snow;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding-bottom: 8%;
+}
+h5 {
+  color: snow;
+  font-weight: bold;
+  font-size: 1rem;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.hr-white {
+  width: 55%;
+  background-color: snow;
+}
+.header p {
+  color: snow;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+}
+img {
+  width: 65%;
+}
+
+form {
+  color: var(--bg-color);
+}
+.btn-submit {
+  padding: .75rem 2.25rem;
+  border-radius: 40px;
+  width: 50%;
+  background-color: var(--bg-color);
+  color: snow;
+}

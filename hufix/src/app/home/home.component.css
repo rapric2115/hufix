@@ -44,7 +44,7 @@ header {
   color: snow;
 }
 .main {
-  padding-top: 15%;
+  padding-top: 10%;
 }
 .htos {
   display: flex;
@@ -85,7 +85,7 @@ header {
   line-height: 75px;
   font-size: 30px;
   color: var(--bg-color);
-  border-radius: 7px;
+  border-radius: 0px;
   padding: .25rem;
 }
 .flex-container > * {

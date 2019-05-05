@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "~bootstrap/dist/css/bootstrap.css";
-@import url('https://fonts.googleapis.com/css?family=Raleway|Catamaran');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600,600i,700,700i,800,800i,900,900i|Catamaran');
+
+
 
 html, body {
   margin: 0;
@@ -11,7 +13,9 @@ html, body {
 }
 :root {
   --bg-color: #002d45;
+  --bg-color-t: rgb(0, 45, 69,.35);
   --orange : #d98100;
+  --orange-t: rgb(217, 129, 0, .54);
   --bg-orange: #ff9900;
   --light-blue: #0073e4;
   --dark-blue: #002d45; /* footer */
@@ -19,5 +23,81 @@ html, body {
   --text-blue: #002d45;
   --bg-lightGray: #fafafa;
   --bg-gray: #c3c3c3;
-  --font-cat: 'Catamaran';
+  --font-cat: 'Raleway', sans-serif;
+}
+
+.mat-horizontal-content-container {
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: var(--orange);
+  color: #fff;
+}
+.mat-radio-label {
+  display: inline-flex;
+  align-content: center;
+}
+
+.mat-step-header .mat-step-icon {
+  background-color: var(--bg-color-t);
+}
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: var(--bg-color);
+  color: #fff;
+}
+.mat-step-header .mat-step-icon-selected {
+  background-color: var(--orange);
+  color: #fff;
+}
+#radio-container .label {
+  margin-bottom: 0;
+}
+#radio-container .mat-radio-label-content {
+  padding-left: 0;
+}
+#radio-container .mat-radio-container {
+  width: 0;
+}
+#radio-container .mat-radio-outer-circle {
+  box-sizing: border-box;
+  height: 9rem;
+  left: 9px;
+  position: absolute;
+  top: -80px;
+  transition: border-color ease 280ms;
+  width: 6rem;
+   border-width: 0 !important;
+  /* border-style: solid; */
+  /* border-radius: 50%; */
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: var(--orange);
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: var(--orange);
+}
+.mat-radio-outer-circle {
+  border-color: var(--orange-t);
+}
+/* HIDE RADIO */
+radio-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  width: 0;
+  height: 0;
+
+}
+
+/* IMAGE STYLES */
+#radio-container + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+#radio-container:checked + img {
+  outline: 2px solid #f00;
 }

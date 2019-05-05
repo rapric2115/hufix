@@ -1,3 +1,5 @@
+import { AuthGuardService } from './shared/auth-guard.service';
+import { AuthService } from './shared/auth.service';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +43,13 @@ import { UserAccountComponent } from './user-account/user-account.component';
 import { TradesComponent } from './trades/trades.component';
 import { ReferralsComponent } from './referrals/referrals.component';
 import { AddressComponent } from './address/address.component';
+import { FAQComponent } from './faq/faq.component';
+import { EnterpriseComponent } from './enterprise/enterprise.component';
+import { ContactComponent } from './contact/contact.component';
+import { UserService } from './shared/user.service';
+
+import { TestingFormComponent } from './testing-form/testing-form.component';
+import { ProductsService } from './shared/products.service';
 
 
 @NgModule({
@@ -60,7 +70,11 @@ import { AddressComponent } from './address/address.component';
     UserAccountComponent,
     TradesComponent,
     ReferralsComponent,
-    AddressComponent
+    AddressComponent,
+    FAQComponent,
+    EnterpriseComponent,
+    ContactComponent,
+    TestingFormComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +83,7 @@ import { AddressComponent } from './address/address.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    AngularFireDatabaseModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -90,7 +105,12 @@ import { AddressComponent } from './address/address.component';
     MatStepperModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuardService,
+    UserService,
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

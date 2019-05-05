@@ -1,14 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Validators, FormControl} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
 import Swal from 'sweetalert2';
 import { ProductsService } from '../shared/products.service';
-import {MatStepper} from '@angular/material';
-import { Router } from '@angular/router';
-
-// import * as  swal  from 'sweetalert';
-
-// import swal from 'sweetalert';
 
 export interface QuantA {
   value: string;
@@ -19,21 +15,18 @@ export interface QuantB {
   viewValue: string;
 }
 
-@Component ({
-  selector: 'app-form-details-mobile',
-  templateUrl: './form-details-mobile.component.html',
-  styleUrls: ['./form-details-mobile.component.css'],
+@Component({
+  selector: 'app-testing-form',
+  templateUrl: './testing-form.component.html',
+  styleUrls: ['./testing-form.component.css']
 })
-
-
-export class FormDetailsMobileComponent implements OnInit {
+export class TestingFormComponent implements OnInit {
 
 
   constructor(
     private _formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-    private productsService: ProductsService,
-    private router: Router) {
+    private productsService: ProductsService) {
     this.firstFormGroup = new FormGroup({
       firstName: new FormControl()
    });
@@ -44,8 +37,6 @@ export class FormDetailsMobileComponent implements OnInit {
 
   products$;
   id;
-
-  @ViewChild('stepper') stepper: MatStepper;
 
   // mail validation
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -75,8 +66,6 @@ export class FormDetailsMobileComponent implements OnInit {
    iphone9 = true;
    isLinear = false;
 
-   sellProfileForm: FormGroup;
-
    firstFormGroup: FormGroup;
    secondFormGroup: FormGroup;
    thirdFormGroup: FormGroup;
@@ -94,7 +83,7 @@ export class FormDetailsMobileComponent implements OnInit {
    deviceCondition: string;
 
    // Personal data Form
-   dataFirstName: string;
+   dataName: string;
    dataLastName: string;
    dataAddress: string;
    dataCity: string;
@@ -201,11 +190,6 @@ export class FormDetailsMobileComponent implements OnInit {
    screenScratch: string[] = ['Yes', 'No'];
    selectedIndex;
 
-   // Stepper Next
-   move(index: number) {
-    this.stepper.selectedIndex = index;
-  }
-
    // Mobile Storage Price
    mStorage(Stg: any) {
     if (Stg === '64 GB') {
@@ -267,34 +251,31 @@ export class FormDetailsMobileComponent implements OnInit {
     console.log(q);
   }
   setOpen() {
-    const so = document.getElementById('carrier').classList;
+    const so = document.getElementById('collapseTwo').classList;
     so.add('show');
   }
   setOp() {
     const open = document.getElementById('collapseThree').classList;
     open.add('show');
-    const re = document.getElementById('carrier').classList;
-    re.remove('show');
   }
   ss() {
-    const x = document.getElementById('devicePower').classList;
+    const x = document.getElementById('collapsePower').classList;
     x.add('show');
-    const y = document.getElementById('accuratePrice').classList;
+    const y = document.getElementById('collapseCondition').classList;
     y.remove('show');
   }
   powerOO() {
-    const p = document.getElementById('phoneImai').classList;
+    const p = document.getElementById('collapseImai').classList;
     p.add('show');
-    const c = document.getElementById('devicePower').classList;
+    const c = document.getElementById('collapsePower').classList;
     c.remove('show');
   }
   ima() {
     const im = document.getElementById('collapseCheckout').classList;
     im.add('show');
-    const ima = document.getElementById('phoneImai').classList;
+    const ima = document.getElementById('collapseImai').classList;
     ima.remove('show');
   }
-  acPrice() {}
 
   getErrorMesPaypal() {
     return this.paypalEmail.hasError('required') ? 'You must enter a value' :
@@ -311,47 +292,12 @@ export class FormDetailsMobileComponent implements OnInit {
   success() {
     setTimeout( () => {
        Swal.fire('Your Order has been place', 'successfully', 'success');
-       this.router.navigate(['/dashboard/trades']);
     }, 2000);
-   }
-
- goTo() {
-  this.router.navigate(['/dashboard/trade']);
  }
-
- async getAllData() {
-  const users = await this.success();
-  const posts = await this.goTo();
-}
 
  /* Getting only on first Conditions */
 
  ngOnInit() {
-   this.sellProfileForm = new FormGroup({
-     myMobile: new FormControl(''),
-     favoriteCarrier: new FormControl(''),
-     storage: new FormControl(''),
-     condition: new FormControl(''),
-     scrtsOrCrk: new FormControl(''),
-     powerOnOff: new FormControl(''),
-     imai: new FormControl(''),
-     quantity: new FormControl(''),
-     dataFirstName: new FormControl(''),
-     dataLastName: new FormControl(''),
-     dataCompany: new FormControl(''),
-     dataAddress: new FormControl(''),
-     dataAddressSecLine: new FormControl(''),
-     dataCity: new FormControl(''),
-     dataState: new FormControl(''),
-     dataZip: new FormControl(''),
-     dataEmail: new FormControl(''),
-     dataPaypalEmail: new FormControl(''),
-     dataMessage: new FormControl(''),
-     payMethod: new FormControl(''),
-     termsCond: new FormControl(''),
-     mobileCarrier: new FormControl('')
-   });
-   /*
    this.firstFormGroup = this._formBuilder.group({
      firstCtrl: ['', Validators.required],
      mobileCarrier: ['', Validators.required],
@@ -413,14 +359,12 @@ export class FormDetailsMobileComponent implements OnInit {
       dataEmail: ['', Validators.required],
       dataPaypal: ['', Validators.required],
       password: ['', Validators.required],
-      dataNotes: ['', Validators.required],
-      payMethod: ['', Validators.required],
-      termsCond: ['', Validators.required]
+      dataNotes: ['', Validators.required]
     });
     this.paymentMethod = this._formBuilder.group({
       payMethod: ['', Validators.required],
       termsCond: ['', Validators.required]
-    });*/
+    });
  }
 
  openSnackBar(message: string, action: string) {
@@ -441,6 +385,6 @@ export class FormDetailsMobileComponent implements OnInit {
    }
  }
  save(product) {
-   this.productsService.create(product);
+  this.productsService.create(product);
  }
 }

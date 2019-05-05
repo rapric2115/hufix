@@ -1,5 +1,6 @@
 .btn-mauto {
   margin-top: 3rem;
+  width: 100%;
 }
 .btn-outline-dash {
   background-color: var(--bg-lightGray);
@@ -15,9 +16,19 @@
   background-color: var(--dark-blue);
   color: snow;
 }
+.container {
+  padding-bottom: 3rem;
+}
 
 @media (max-width: 560px) {
   .btn-group label {
     font-size: .8rem;
+  }
+  .btn-mauto {
+    flex-wrap: wrap;
+    margin-top: 2rem !important;
+  }
+  .mt-x {
+    margin-top: 1rem;
   }
 }
