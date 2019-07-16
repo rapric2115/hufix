@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let brand of brands" [value]="brand.value">
+      {{brand.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

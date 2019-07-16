@@ -22,6 +22,7 @@ html, body {
   --darkes-blue: #001926; /* mini-footer */
   --text-blue: #002d45;
   --bg-lightGray: #fafafa;
+  --bg-darkgray: #efefef;
   --bg-gray: #c3c3c3;
   --font-cat: 'Raleway', sans-serif;
 }
@@ -38,7 +39,14 @@ html, body {
 .mat-radio-label {
   display: inline-flex;
   align-content: center;
+  margin-bottom: -.15rem;
 }
+.spn {
+  text-align: center !important;
+}
+
+/* css form orange onclick */
+
 
 .mat-step-header .mat-step-icon {
   background-color: var(--bg-color-t);
@@ -51,27 +59,6 @@ html, body {
   background-color: var(--orange);
   color: #fff;
 }
-#radio-container .label {
-  margin-bottom: 0;
-}
-#radio-container .mat-radio-label-content {
-  padding-left: 0;
-}
-#radio-container .mat-radio-container {
-  width: 0;
-}
-#radio-container .mat-radio-outer-circle {
-  box-sizing: border-box;
-  height: 9rem;
-  left: 9px;
-  position: absolute;
-  top: -80px;
-  transition: border-color ease 280ms;
-  width: 6rem;
-   border-width: 0 !important;
-  /* border-style: solid; */
-  /* border-radius: 50%; */
-}
 .mat-radio-button.mat-accent .mat-radio-inner-circle {
   background-color: var(--orange);
 }
@@ -81,23 +68,152 @@ html, body {
 .mat-radio-outer-circle {
   border-color: var(--orange-t);
 }
-/* HIDE RADIO */
-radio-container {
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: var(--bg-orange);
+}
+
+/* radio button choose phone */
+#rb .mat-radio-container {
+  box-sizing: border-box;
+  display: inline-block;
   position: relative;
-  top: 50%;
-  left: 50%;
-  opacity: 1;
+  width: 0px !important;
+  height: 0px !important;
+  flex-shrink: 0;
+  position: absolute;
+  opacity: 0;
   width: 0;
   height: 0;
-
+}
+#rb .mat-radio-button {
+  text-align: center !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/* IMAGE STYLES */
-#radio-container + img {
-  cursor: pointer;
+#pm .mat-radio-container {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 0px !important;
+  height: 0px !important;
+  flex-shrink: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#pm .mat-radio-button {
+  text-align: center !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/* CHECKED STYLES */
-#radio-container:checked + img {
-  outline: 2px solid #f00;
+#s .mat-radio-container {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 0px !important;
+  height: 0px !important;
+  flex-shrink: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#s .mat-radio-button {
+  text-align: center !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#dpo .mat-radio-container {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 0px !important;
+  height: 0px !important;
+  flex-shrink: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#dpo .mat-radio-button {
+  text-align: center !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#di .mat-radio-container {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 0px !important;
+  height: 0px !important;
+  flex-shrink: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#di .mat-radio-button {
+  text-align: center !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#pm .mat-radio-container {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  width: 0px !important;
+  height: 0px !important;
+  flex-shrink: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#pm .mat-radio-button {
+  text-align: center !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+
+.mat-radio-label-content {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    display: inline-block;
+    order: 0;
+    line-height: inherit;
+    padding-left: 9px;
+    padding-right: 3px;
+}
+
+/*.w-sw {
+  position: absolute;
+  background-color: #fff;
+  left: 12%;
+  width: 78%;
+}
+*/
+.backcolor {
+  background-color: var(--orange) !important;
+  position: absolute;
+  width: 96%;
+  left: 6px;
+  top: 108px;
+  padding: .5rem;
+  color: snow;
+}
+.backpad {
+  height: 85px !important;
+  padding-bottom: 7.2rem;
 }

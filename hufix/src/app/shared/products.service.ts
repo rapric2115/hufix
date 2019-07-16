@@ -35,9 +35,12 @@ export class ProductsService {
     // 'users/' + this.us.uid + 'products/'
     this.db.list('users/' + this.us.uid + '/products').push(product);
   }
+  uDetails(product) {
+    this.db.list('users/' + this.us.uid + '/details').push(product);
+  }
 
   savePro(productId, product) {
-    this.db.object('/products/' + productId ).update(product);
+    this.db.object('/details/' + productId ).update(product);
   }
 
   getAll() {

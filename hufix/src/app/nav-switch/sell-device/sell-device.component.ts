@@ -1,20 +1,30 @@
+import { CommunicationService } from './../../communication.service';
 import { HttpClient } from '@angular/common/http';
 import { DeviceBrandsService } from './../../device-brands.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-sell-device',
   templateUrl: './sell-device.component.html',
-  styleUrls: ['./sell-device.component.css']
+  styleUrls: ['./sell-device.component.css'],
+  providers: [CommunicationService]
 })
 export class SellDeviceComponent implements OnInit {
 
   form: any;
 
 
-  constructor(public fb: FormBuilder, private DvBd: DeviceBrandsService, private _http: HttpClient) {
+  constructor(public fb: FormBuilder,
+    private DvBd: DeviceBrandsService,
+    private _http: HttpClient,
+    private communication: CommunicationService) {
+   }
+
+   commun(value) {
+     this.communication.commBrand(value);
    }
 
   mainBrands = {
@@ -29,11 +39,11 @@ export class SellDeviceComponent implements OnInit {
 
    Brands = [
     {
-      name: 'Samsung',
+      name: 'iPhone',
       id: 1
     },
     {
-      name: 'iPhone',
+      name: 'Samsung',
       id: 2
     },
     {

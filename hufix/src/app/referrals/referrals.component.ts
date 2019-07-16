@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-referrals',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferralsComponent implements OnInit {
 
-  constructor() { }
+  refUrl: any;
+  constructor(
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.refUrl = this.document.location.href;
+    console.log(this.refUrl);
+  }
 
   ngOnInit() {
   }

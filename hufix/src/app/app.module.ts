@@ -36,7 +36,8 @@ import { MatFormFieldModule,
          MatCheckboxModule,
          MatIconModule,
          MatSnackBarModule,
-         MatDialogModule } from '@angular/material';
+         MatDialogModule,
+         MatButtonModule } from '@angular/material';
 import { FormDetailsMobileComponent } from './form-details-mobile/form-details-mobile.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserAccountComponent } from './user-account/user-account.component';
@@ -47,9 +48,11 @@ import { FAQComponent } from './faq/faq.component';
 import { EnterpriseComponent } from './enterprise/enterprise.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserService } from './shared/user.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { TestingFormComponent } from './testing-form/testing-form.component';
 import { ProductsService } from './shared/products.service';
+import { BrandComponent } from './brand/brand.component';
 
 
 @NgModule({
@@ -74,7 +77,8 @@ import { ProductsService } from './shared/products.service';
     FAQComponent,
     EnterpriseComponent,
     ContactComponent,
-    TestingFormComponent
+    TestingFormComponent,
+    BrandComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +102,9 @@ import { ProductsService } from './shared/products.service';
     MatCheckboxModule,
     MatIconModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatButtonModule
   ],
   exports: [
     BrowserAnimationsModule,

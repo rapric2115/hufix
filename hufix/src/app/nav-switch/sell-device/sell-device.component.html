@@ -9,7 +9,8 @@
       <div class="center text-center inp-sec">
           <div class="group">
           <div class="input-group">
-              <select [(ngModel)]="mainBrands" class="l-border custom-select">
+           <!-- <app-brand></app-brand> -->
+             <select [(ngModel)]="mainBrands" class="l-border custom-select">
                   <option disabled [ngValue]="null" selected>Brands</option>
                   <option [ngValue]="brand" *ngFor="let brand of Brands">{{brand.name}}</option>
               </select>
@@ -19,7 +20,10 @@
               </select>
               <div class="input-group-append">
                 <span class="input-group-text"
-                id="validationTooltipUsernamePrepend" [routerLink]="['/details']" routerLinkActive="router-link-active" >
+                id="validationTooltipUsernamePrepend"
+                [routerLink]="['/details']"
+                routerLinkActive="router-link-active"
+                (click)="commun(mainBrands.id)" >
                 <i class="fas fa-search"></i>
               </span>
               </div>

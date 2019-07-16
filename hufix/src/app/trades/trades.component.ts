@@ -1,8 +1,8 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, snapshotChanges } from 'angularfire2/database';
 import { ProductsService } from '../shared/products.service';
 import * as firebase from 'firebase/app';
-import { map } from 'rxjs/operators';
 
 export class Item {
   body: string;
@@ -25,9 +25,18 @@ export class TradesComponent implements OnInit {
   userId: any;
   test$: any;
   user: any;
-  items: FirebaseListObservable<Item[]> = null;
+  mprod: any;
+  items: AngularFireList<Item[]> = null;
   uId: string;
   probando: AngularFireList<any>;
+  key: any;
+  details: any;
+  k: any;
+  d: any;
+  // datos en pantalla
+  cond: any;
+  image: any;
+
 
   constructor( private productService: ProductsService,
     private db: AngularFireDatabase) {
@@ -40,35 +49,28 @@ export class TradesComponent implements OnInit {
       // const data = firebase.database().ref('/users/' + userId );
       // console.log('la database se despliega aca ' + data);
       const usersRef = firebase.database().ref().child('users');
-      const dataUser = usersRef.child('users');
+      const dataUser = usersRef.child('/products');
       usersRef.on('value', snap => {
         this.product$ = snap.val();
+
         this.prod$ = (this.product$[this.usId].products);
-        // console.log(JSON.stringify(this.product$, null, 2));
-      });
-      dataUser.on('value', snap => {
-        console.log(snap.val());
-      });
-
-      productService.auth.user$.subscribe( user => {
-        this.userId = user.uid;
-        const userData = db.database.ref('/users/');
+        console.log(this.prod$);
+        this.key = Object.values(this.prod$);
+        console.log(this.key);
       });
 
-    // this.prod$ = this.getAll();
-    // this.product$ = this.getProdId();
-    // console.log(this.productService.usId);
    }
 
-   getItemsList(): FirebaseListObservable<Item[]> {
+   getItemsList(): AngularFireList<Item[]> {
     if (!this.usId) {return; }
-    this.items = this.db.list(`users/${this.usId}/products/` );
-    this.eet$ = firebase.database().ref('users/' + this.usId).child('products');
-    console.log(this.eet$);
+    this.items = this.db.list(`users/${this.usId}/products/${this.key}`);
+    // this.eet$ = firebase.database().ref('users/' + this.usId).child('products');
+    console.log(this.items);
   }
 
    getProdId() {
-    return this.db.object('/users/' + this.usId + '/products/' ).valueChanges().subscribe( h => {
+      this.db.object('/users/' + this.usId + '/products/' + this.key )
+      .valueChanges().subscribe( h => {
       this.testing = (h);
        console.log(this.testing);
     });
@@ -99,14 +101,24 @@ export class TradesComponent implements OnInit {
   ngOnInit() {
      this.db.list(`/users/`).snapshotChanges().subscribe( usPro => {
       usPro.forEach(mobilePro => {
-        console.log(mobilePro.payload.val()['products']);
+        console.log(mobilePro.payload.val()[`products`]);
         this.test$ = mobilePro.payload.val();
-        console.log(this.test$['products']);
-
-        // console.log(JSON.stringify(this.product$, null, 2));
-        this.user = this.test$['products'];
+        this.mprod = this.test$['products'];
+        console.log(this.mprod);
+        this.user = this.test$[`products`];
       });
     });
+
+    const usersRef = firebase.database().ref().child('users');
+      const dataUser = usersRef.child('/products');
+      usersRef.on('value', snap => {
+        this.product$ = snap.val();
+
+        this.prod$ = (this.product$[this.usId].products);
+        console.log(this.prod$);
+        this.key = Object.values(this.prod$);
+        console.log(this.key);
+      });
    }
 
    referUser() {

@@ -1,6 +1,9 @@
 ul {
   list-style: none;
 }
+.row {
+  flex-flow: wrap-reverse;
+}
 .phone {
   margin: auto;
   display: flex;
@@ -11,7 +14,7 @@ ul {
   font-weight: bold;
 }
 .moDetails {
-  background-color: snow;
+  background-color: var(--bg-lightgray);
   border-radius: 7px;
   border: 2px solid #c3c3c3;
   padding: .35rem;

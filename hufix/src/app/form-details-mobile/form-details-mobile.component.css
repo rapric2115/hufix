@@ -7,9 +7,66 @@
   padding: 0.5rem 0.25rem;
   border-bottom: none;
 }
+
+.body-card {
+  padding: .5rem !important;
+  text-align: center;
+}
+
+.pad15 {
+  padding: 0.5rem;
+  width: 39vw;
+}
+
+.checkout {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  background-color: #f6f5f6
+}
 .card-body-checkout {
   padding: 0 !important;
 }
+
+.border-line {
+  justify-content: center;
+}
+
+.shadow {
+  padding: 2%;
+}
+
+.bg-darkgray {
+  background-color: var(--bg-darkgray);
+}
+
+.example-radio-button:checked {
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(50, 50, 50, 0.7) !important;
+  -moz-box-shadow:    0px 0px 10px 5px rgba(50, 50, 50, 0.7) !important;
+  box-shadow: 0px 0px 10px 5px rgba(50, 50, 50, 0.7) !important;
+  width: 41vw;
+  border-radius: 5px;
+  height: 32.5vh;
+}
+
+/* css para condition on check */
+.bg-orange {
+  background-color: var(--bg-orange);
+  padding-bottom: 100px;
+}
+.p-orange {
+  color: snow;
+}
+
+.w-space {
+  background: snow;
+  position: absolute;
+  padding-bottom: 18px;
+  left: 5px;
+  padding-left: 30px;
+}
+
 .container-fluid {
   background-color: var(--bg-lightGray);
 }
@@ -17,12 +74,29 @@
   margin-right: .5rem;
 }
 .phone {
-  padding-top: 10%;
+  padding-top: 0;
   margin: auto;
   display: flex;
   align-content: center;
   width: 10rem;
+  padding-right: 10px; /* testing mobile size delete later */
 }
+
+#mat-radio-23 {
+  padding-top: 4%;
+}
+
+#mat-radio-26 {
+  padding-top: 4%;
+}
+#mat-radio-27 img {
+  width: 50px !important;
+}
+
+.btn-size {
+  width: 125px;
+}
+
 span {
   text-align: center;
 }
@@ -35,6 +109,10 @@ label {
   background-color: #fff;
   border: none;
   text-align: left;
+}
+
+.btn-outline-hufix {
+  border: 1px solid var(--darkes-blue);
 }
 
 /* label:hover {
@@ -53,6 +131,13 @@ label {
   /* border: 1px solid var(--bg-gray); */
   padding-bottom: .2rem;
   margin-bottom: -6px !important;
+}
+
+.spinner {
+  width: 100%;
+}
+mat-spinner {
+  margin: auto;
 }
 
 mat-horizontal-content-container {
@@ -74,7 +159,100 @@ mat-step-icon-state-number mat-step-icon mat-step-icon-selected {
 mat-radio-button span {
   font-weight: bold;
   color: var(--text-blue) !important;
+  font-size: 85%;
+  position: relative;
+  left: -4%;
 }
+
+.btn-radio-check {
+  background-color: var(--orange) !important;
+  color: snow;
+  padding-bottom: 80px !important;
+}
+.bg-white {
+  background-color: var(--bg-lightGray) !important;
+  color: var(--bg-color);
+  padding-bottom: 5%;
+  position: absolute;
+  left: .36rem;
+  padding-left: 2.6rem;
+  width: 97%;
+  border: 1px solid #eee;
+}
+
+/* animation */
+@-webkit-keyframes slideInDown {
+  from {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+  }
+  to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInDown {
+  from {
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      visibility: visible;
+  }
+  to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}
+
+
+@-webkit-keyframes fadeInUp {
+  from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+  }
+  to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+  }
+  to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.form-check {
+  display: inline-block !important;
+  padding-left: 3.25rem !important;
+}
+
+.fs15 {
+  font-size: 1.5rem;
+}
+
 mat-radio-button {
   background-color: #ffffff;
 }
@@ -108,12 +286,26 @@ mat-radio-container {
   font-weight: 500;
   text-decoration: none;
 }
+h5 {
+  font-weight: bold;
+}
 h5:active {
   font-weight: 900 !important;
+}
+.line-sep {
+  border-bottom: 1px solid #ccc;
 }
 .w-space-pw {
   white-space: pre-wrap;
 }
+/* css Form */
+#card-b {
+  padding: 0 !important;
+}
+
+
+/*css Form ends*/
+
 .none-pad {
   padding: 0;
 }
@@ -144,7 +336,7 @@ h5:active {
 }
 
 .carrier-img {
-  width: 3rem;
+  width: 5rem;
 }
 .m-btn {
   padding: .5rem;
@@ -155,6 +347,10 @@ h5:active {
   font-size: 4rem;
   font-weight: bold;
   color: var(--orange);
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  text-align: center;
 }
 .btn-checkout {
   background-color: var(--bg-color);
@@ -178,7 +374,7 @@ h5:active {
 hr {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
-  width: 14rem;
+  width: 6rem;
   color: var(--bg-color);
   font-weight: 800;
   border-top: 2px solid var(--bg-color);
@@ -223,6 +419,8 @@ small {
 }
 .card-body-cart {
   padding: .75rem !important;
+  background-color: var(--bg-lightGray);
+  margin: .25rem;
 }
 .card-body-cart strong {
   margin-right: 0;
@@ -254,6 +452,12 @@ small {
 
 .pl-price {
   padding-left: 10px !important;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.vert-align {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 mat-horizontal-content-container {
@@ -267,7 +471,10 @@ mat-horizontal-content-container {
 
 @media (max-width: 568px) {
   .phone {
-    width: 8rem;
+    /* width: 7.5rem; */
+    width: 5.5rem;  /* all comment section it testing this size its for testing erase later */
+   /*  padding-right: 7%;
+    padding: 1rem 1rem 1.3rem 0.5rem; */
   }
   .col-4 {
     padding-left: 0 !important;
@@ -300,4 +507,14 @@ mat-horizontal-content-container {
   background:  url("https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg")  center / contain no-repeat;
   white-space: nowrap;
   display:inline
+}
+
+.btn-test {
+  width: 40%;
+  height: 80px;
+  text-align: center;
+}
+.btn-label-test {
+  margin: auto;
+  padding-top: 10%;
 }

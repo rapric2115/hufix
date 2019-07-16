@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

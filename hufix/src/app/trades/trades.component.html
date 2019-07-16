@@ -3,18 +3,19 @@
   <h3 class="text-center mt-4">My Trades</h3>
   <hr>
   <div class="row">
-    <div class="col-md-6 moDetails">
+    <div class="col-md-6 moDetails mb-2" *ngFor="let t of key"
+    fxLayout="column-reverse" fxLayoutAlign="start start" fxLayoutGap="gappx">
       <div class="row">
         <div class="col-4">
-          <img src="#"
+          <img src="{{ t.myMobile }}"
            alt="" class="img-fluid phone cartImg">
         </div>
         <div class="col-5">
           <ul>
             <li><strong>iPhone XR</strong></li>
-            <li>carrier: </li>
-            <li>Condition: </li>
-            <li>Storage:</li>
+            <li>carrier: {{t.mobileCarrier}}</li>
+            <li>Condition: {{ t.condition }}</li>
+            <li>Storage: {{ t.storage }}</li>
             <li></li>
           </ul>
         </div>
