@@ -1,13 +1,11 @@
-import { CommunicationService } from './../communication.service';
-import {Component, OnInit, ViewChild, Input} from '@angular/core';
+import {Component, OnInit, ViewChild, Input, HostBinding} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
 import Swal from 'sweetalert2';
 import { ProductsService } from '../shared/products.service';
 import { MatStepper } from '@angular/material';
 import { Router } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { Subject, Observable } from 'rxjs';
+import { CommunicationService } from '../communication.service';
 
 
 // import * as  swal  from 'sweetalert';
@@ -24,13 +22,18 @@ import { Subject, Observable } from 'rxjs';
 
 
 export class FormDetailsMobileComponent implements OnInit {
+
+
   quant = 'Q1';
   mbModel: any;
   iid: any;
   mobileModel: any[] = [];
   mob: any;
+  mid: string[];
 
-  @Input() masterName: string;
+  @Input() value: string;
+
+
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -45,18 +48,15 @@ export class FormDetailsMobileComponent implements OnInit {
    this.products$ = this.productsService.getAll();
     // console.log(this.products$);
 
-    /* this.communication.communication$.subscribe(
-      data => this.mobileModel = this.mobiles.filter( function(mo) {
-        return mo.parentId === data.toString();
-      })
-     );*/
+    this.communication.communication$.subscribe( data => {
+      console.log(data);
+    });
 
-     communication.communication$.subscribe( (data) => console.log(data))
+
   }
 
   products$;
   id;
-  mid: any;
 
   @ViewChild('stepper') stepper: MatStepper;
 
@@ -702,25 +702,22 @@ export class FormDetailsMobileComponent implements OnInit {
     });
  }); */
 
-
-
-
- this.communication.communication$.subscribe( (data) => {
-   if ( data === 1) {
-     this.mobileModel = this.mobiles.filter( f => {
-       return f.parentId === '1';
-     });
-     console.log(this.mobileModel);
-   } else {
-     console.log('esta no es la respuesta');
-   }
+ this.communication.change.subscribe( data => {
+   console.log(data);
  });
+
  }
 
  openSnackBar(message: string, action: string) {
    this.snackBar.open(message, action, {
      duration: 2000,
    });
+ }
+
+ model() {
+  this.communication.communication$.subscribe( (data) => {
+    console.log(data);
+ });
  }
 
  test(product) {

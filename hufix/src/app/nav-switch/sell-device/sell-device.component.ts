@@ -1,7 +1,7 @@
 import { CommunicationService } from './../../communication.service';
 import { HttpClient } from '@angular/common/http';
 import { DeviceBrandsService } from './../../device-brands.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 
 
@@ -23,8 +23,11 @@ export class SellDeviceComponent implements OnInit {
     private communication: CommunicationService) {
    }
 
+   @HostListener('click')
+
    commun(value) {
      this.communication.commBrand(value);
+     console.log(value);
    }
 
   mainBrands = {
