@@ -27,6 +27,7 @@ export class AuthService {
     this.user$ = afAuth.authState;
   }
 
+  // Aca logearse con Google, para que funcione en el modo produccion debe de arreglar URL
   login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
@@ -35,6 +36,7 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
 
+  // Registro con Email y Password
   onSignUp(email: string, password: string) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .catch (
@@ -42,6 +44,7 @@ export class AuthService {
     );
   }
 
+  // Logearse con Email y Password
   singIn(email: string, password: string) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
     .then(

@@ -7,9 +7,9 @@ import { MatStepper } from '@angular/material';
 import { Router } from '@angular/router';
 import { CommunicationService } from '../communication.service';
 
+// import swal para crear alertas para incremetar la experiencia del usuario (informacion)
 
 // import * as  swal  from 'sweetalert';
-
 // import swal from 'sweetalert';
 
 
@@ -30,6 +30,9 @@ export class FormDetailsMobileComponent implements OnInit {
   mobileModel: any[] = [];
   mob: any;
   mid: string[];
+  products$;
+  id;
+
 
   @Input() value: string;
 
@@ -55,9 +58,6 @@ export class FormDetailsMobileComponent implements OnInit {
 
   }
 
-  products$;
-  id;
-
   @ViewChild('stepper') stepper: MatStepper;
 
   // mail validation
@@ -70,7 +70,7 @@ export class FormDetailsMobileComponent implements OnInit {
    open = true;
    check = true;
 
-   // Mobile Price
+   // variables para precio Mobile Price
    val: any;
    mobilePrice: any;
    Stg: any;
@@ -122,7 +122,8 @@ export class FormDetailsMobileComponent implements OnInit {
    termsCond: string;
    payMethod: string;
 
-
+  // las marcas de las compañias telefonicas aca pueden agregar o modificar
+  // logos o/y compañias telefonicas.
   favoriteCarrMobile: string;
    carriers: any[] = [
      {
@@ -151,7 +152,8 @@ export class FormDetailsMobileComponent implements OnInit {
    }
    ];
 
-
+  // listado de los Mobiles, faltan los demas telefonos y nota los Id se deben de tomar
+  // del listado de Brands en nav-switch en sell device component ts
    favoriteCarrier: string;
    mobiles = [
     {
@@ -430,6 +432,7 @@ export class FormDetailsMobileComponent implements OnInit {
   }
    ];
 
+   // seccion para la condicion de los telefonos 
    conditions: any[] = [
      {
        'id': 6,
@@ -457,6 +460,7 @@ export class FormDetailsMobileComponent implements OnInit {
     }
    ];
 
+   // informacion adicional que se requiere para llenar formulario sobre los mobiles y condiciones
    mobileStorage: string;
    storage: string[] = ['64 GB', '256 GB', '512 GB'];
    mobileCondition: string;
@@ -470,9 +474,6 @@ export class FormDetailsMobileComponent implements OnInit {
    screenSctch: string;
    screenScratch: string[] = ['Yes', 'No'];
    selectedIndex;
-
-   // converting string into integer
-
 
    // Stepper Next
    move(index: number) {
@@ -567,13 +568,10 @@ export class FormDetailsMobileComponent implements OnInit {
       } else if (val === '') {
         this.mobilePrice = 0;
       }
-      console.log(val);
     }
 
-   quan(q: any) {
-    console.log(q);
-  }
-
+    // seccion del formulario en la parte de condicion, añadiendo animaciones
+    // dependiendo de la interaccion del usuario
   setOpen() {
     setTimeout(() => {
       const so = document.getElementById('carrier').classList;
@@ -689,12 +687,10 @@ export class FormDetailsMobileComponent implements OnInit {
     price: new FormControl('')
    });
 
-  // this.mobileModel = this.mobiles.filter( function(mo) {
-  // mo => console.log(mo); });
-
-  /* this.mobiles.filter( function(mo) {
-    return mo.parentId === this.mid;
-   }); */
+  // seccion para comunicacion entre los componentes sell-device y el formulario 
+  // para filtrar los datos dependiendo de la eleccion del usuario
+  // nota la subscripcion no refleja datos por consola revisar la coneccion. la comunicacion 
+  // se hace via service a traves de communication service
 
   /* this.communication.communication$.subscribe( (data) => {
     this.mobileModel = this.mobiles.filter( f => {
@@ -702,12 +698,14 @@ export class FormDetailsMobileComponent implements OnInit {
     });
  }); */
 
+ // prueba para la comunicacion entre los componentes via services
  this.communication.change.subscribe( data => {
    console.log(data);
  });
 
  }
 
+ // pensaba usarlo para cuando el cliente finaliza el proceso. 
  openSnackBar(message: string, action: string) {
    this.snackBar.open(message, action, {
      duration: 2000,
@@ -720,10 +718,8 @@ export class FormDetailsMobileComponent implements OnInit {
  });
  }
 
- test(product) {
-   console.log(product);
- }
-
+ // estilos en la seccion del formulario de la condicion del telefonos
+ // aqui se agregan estilos y animaciones.
  style(bg: any) {
    console.log(bg);
    if (bg === 'Excellent') {
@@ -789,6 +785,9 @@ export class FormDetailsMobileComponent implements OnInit {
    }
  }
 
+ // en esta seccion se guardan los datos a la base de datos en firebase
+ // nota realizar un nuevo usuario en firebase y generar codigos 
+ // para reemplazarlos en environment ts en la seccion de firebase.
  supdate(product) {
    if (this.id) { this.productsService.savePro(this.id, product);
    } else {

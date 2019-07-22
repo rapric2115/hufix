@@ -471,8 +471,9 @@ mat-horizontal-content-container {
 
 @media (max-width: 568px) {
   .phone {
+    /* all comment section it testing this size its for testing erase later */
     /* width: 7.5rem; */
-    width: 5.5rem;  /* all comment section it testing this size its for testing erase later */
+    width: 5.5rem;
    /*  padding-right: 7%;
     padding: 1rem 1rem 1.3rem 0.5rem; */
   }

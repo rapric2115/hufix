@@ -1,6 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
+<!-- Componentes que no aparecen en el home component mantener de esta forma y
+agregar nuevos componentes, para no repetir secciones en el home page-->
 <app-home *ngIf="!
 (_router.url === '/details' ||
  _router.url === '/dashboard'||

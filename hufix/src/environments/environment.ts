@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  // Conexion a base de datos con firebase, nota crear usuario y generar codigos para la conexion
+  // y reemplar estos existentes.
   firebase: {
      apiKey: 'AIzaSyAI4IG4VTyvo2eFUukPI4k7dcT4jNj9Vdg',
     authDomain: 'hufix-8fa44.firebaseapp.com',

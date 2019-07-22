@@ -9,6 +9,7 @@ export class UserService {
 
   constructor(private db: AngularFireDatabase) { }
 
+  // se guardan los datos del usuario en la base de datos
   save(user: firebase.User) {
     this.db.object('/users/' + user.uid).update({
       name: user.displayName,

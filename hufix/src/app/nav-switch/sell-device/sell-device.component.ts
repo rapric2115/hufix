@@ -25,6 +25,8 @@ export class SellDeviceComponent implements OnInit {
 
    @HostListener('click')
 
+   // codigo para la comunicacion entre los componentes
+   // este codigo empuja la informacion a form-datils-mobile y este la recibe via service
    commun(value) {
      this.communication.commBrand(value);
      console.log(value);
@@ -39,7 +41,8 @@ export class SellDeviceComponent implements OnInit {
     parentId: 1
   };
 
-
+  // seccion en el que el usuario elije el modelo del telefono, aca estan los id que
+  // son usados para filtrar los telefonos dependiendo de id del parent
    Brands = [
     {
       name: 'iPhone',
@@ -99,6 +102,8 @@ export class SellDeviceComponent implements OnInit {
     }
   ];
 
+  // esta seccion estan los tipos de modelos de los telefonos, esto es para
+  // filtrarlos en la misma barra
   Models = [
     {
       title: 'Galaxy Note 9',
@@ -518,6 +523,8 @@ export class SellDeviceComponent implements OnInit {
     }
   ];
 
+  // en esta seccion se filtrar los resultados dependiendo del id del parent
+  // en la misma seccion de la barra, aca no se comunica via service
   filterById(id) {
     return this.Models.filter(item => item.parentId === id);
   }
@@ -534,12 +541,5 @@ export class SellDeviceComponent implements OnInit {
   onSubmit() {
     console.log('form' , this.form.value);
   }
-
-  /*showBrands() {
-    this.DvBd.getBrands().subscribe((data) => {
-      this.bds = data;
-      console.log(this.bds);
-  });
-}*/
 
 }

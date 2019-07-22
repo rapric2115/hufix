@@ -23,6 +23,7 @@ const routes: Routes = [
   {
     path: 'test', component: TestingFormComponent
   },
+  // se realizo de esta manera mejor descripcion en la URL
   {path: 'dashboard', component: UserDashboardComponent,
   children: [
     {path: 'userAccount', component: UserAccountComponent},

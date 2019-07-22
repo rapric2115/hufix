@@ -2,6 +2,7 @@
     <form [formGroup]="sellProfileForm" (ngSubmit)="save(f.value)" #f="ngForm">
       <mat-horizontal-stepper [linear]="isLinear" #stepper>
         <mat-step [stepControl]="firstFormGroup">
+          <!-- Seccion para que el usuario elija el mobil que desea vender -->
           <ng-template matStepLabel></ng-template>
           <div class="accordion" id="phoneSelectionForm">
               <div class="card">
@@ -36,6 +37,7 @@
               </div>
               <div class="card">
                 <div class="card-header" id="selectCarrier">
+                  <!-- seccion para que el usuario elija la compañia telefonica -->
                   <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                     data-target="#carrier" aria-expanded="false" aria-controls="collapseTwo">
@@ -71,6 +73,7 @@
               </div>
               <div class="card">
                 <div class="card-header" id="storageSize">
+                  <!-- seccion para que el cliente elija la capacidad de almacenamiento del telefono -->
                   <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <h5>1.3 Choose a Storage Size</h5>
@@ -110,6 +113,7 @@
               </div>
         </mat-step><!-- First Step -->
         <mat-step [stepControl]="secondFormGroup">
+          <!-- seccion para que el usuario de mas detalles sobre la condicion del telefono -->
           <ng-template matStepLabel></ng-template>
           <h5 class="text-center"> Help us give you an accurate price</h5>
           <div class="accordion" id="phoneSelectionFormTwo">
@@ -177,13 +181,6 @@
                          </div>
                         </mat-radio-button>
                       </mat-radio-group>
-                      <!--<mat-radio-group class="example-radio-group" [(ngModel)]="devicePowerOnOff"
-                      formControlName="powerOnOff" (click)="powerOO()" name="devicePowerOnOff">
-                          <mat-radio-button class="example-radio-button btn-radio"
-                          *ngFor="let p of powerOnOff" [value]="p" (change)="moPower(p)">
-                            {{p}}
-                          </mat-radio-button>
-                      </mat-radio-group> -->
                   </div>
                 </div>
               </div>
@@ -209,20 +206,13 @@
                          </div>
                         </mat-radio-button>
                       </mat-radio-group>
-
-                     <!-- <mat-radio-group class="example-radio-group" [(ngModel)]="deviceBadImai" name="deviceBadImai"
-                      formControlName="imai" (click)="ima()">
-                          <mat-radio-button class="example-radio-button btn-radio" *ngFor="let i of badImai"
-                           [value]="i" (change)="moImai(i)">
-                                {{i}}
-                          </mat-radio-button>
-                        </mat-radio-group> -->
                   </div>
                 </div>
               </div>
 
               <!-- Cierre del form -->
               <div class="card">
+                <!-- seccion para cuando el usuario finaliza el registro del telefono-->
                   <div class="card-header" id="headingCheckout">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
@@ -275,6 +265,7 @@
         <mat-step [stepControl]="thirdFormGroup">
           <ng-template matStepLabel></ng-template>
           <h5 class="text-center"> Your Selling Cart</h5>
+          <!-- en esta seccion se le da detalles al usuario de las condiciones del telefono -->
 
           <p> we are almost done, just add the device you want and process. </p>
           <div class="card bg-darkgray">
@@ -330,6 +321,7 @@
 
 
           <div class="accordion" id="BillsDetails" *ngIf="processCheck">
+            <!-- En esta seccion se le solicita al usuario informacion -->
           <div class="card">
               <div class="card-header" id="headingBilling">
                 <h2 class="mb-0">
@@ -449,13 +441,6 @@
                      </div>
                     </mat-radio-button>
                   </mat-radio-group>
-
-                <!--  <mat-radio-group class="example-radio-group" [(ngModel)]="payMethod" name="payMethod"
-                  formControlName="payMethod">
-                      <mat-radio-button class="example-radio-button btn-radio" *ngFor="let pm of payment" [value]="pm">
-                        {{pm}}
-                      </mat-radio-button>
-                  </mat-radio-group> -->
                   <br>
                   <hr>
                   <p> Your Personal data will be used to process your order, support your experience throughout this website, and
@@ -467,8 +452,6 @@
                         <a [routerLink]="['/termCond']" routerLinkActive="router-link-active">terms and conditions</a>
                       </mat-checkbox>
                   </div>
-                 <!-- <button class="btn btn-order" type="submit" mat-button matStepperNext
-                  (click)="success()">Place Order</button> -->
               </div>
             </div>
             </div><!-- Cards ends Destails Bills-->

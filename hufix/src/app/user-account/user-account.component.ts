@@ -26,6 +26,9 @@ export class UserAccountComponent implements OnInit {
        });
       // const data = firebase.database().ref('/users/' + userId );
       // console.log('la database se despliega aca ' + data);
+
+      // en esta seccion se pide a la base de datos la informacion del usuario
+      // (mobiles no datos personales)
       const usersRef = firebase.database().ref().child('users');
       const dataUser = usersRef.child('/products');
       usersRef.on('value', snap => {
